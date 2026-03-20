@@ -84,7 +84,9 @@ if (hamburger) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('open');
-    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    const isOpen = navLinks.classList.contains('open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
   navLinks.querySelectorAll('a').forEach(link => {
@@ -179,23 +181,48 @@ if (heroStats) counterObserver.observe(heroStats);
 /* ── CONTACT FORM ─────────────────────────── */
 const form = document.getElementById('contact-form');
 if (form) {
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = form.querySelector('.btn-primary');
     const originalText = btn.textContent;
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = '#28c840';
-    btn.style.boxShadow = '0 4px 20px rgba(40, 200, 64, 0.4)';
+    btn.textContent = 'Sending…';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = originalText;
-      btn.style.background = '';
-      btn.style.boxShadow = '';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        btn.textContent = 'Message Sent ✓';
+        btn.style.background = '#28c840';
+        btn.style.boxShadow = '0 4px 20px rgba(40, 200, 64, 0.4)';
+        form.reset();
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.style.boxShadow = '';
+          btn.disabled = false;
+        }, 3500);
+      } else {
+        throw new Error('submission failed');
+      }
+    } catch {
+      btn.textContent = 'Failed — try again';
+      btn.style.background = '#e55';
       btn.disabled = false;
-      form.reset();
-    }, 3500);
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+      }, 3000);
+    }
   });
 }
+
+/* ── FOOTER YEAR ──────────────────────────── */
+const yearEl = document.getElementById('footer-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ── ACTIVE NAV LINK ──────────────────────── */
 const sections = document.querySelectorAll('section[id]');

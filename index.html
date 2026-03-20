@@ -6,6 +6,26 @@
   <meta name="description" content="Mecasimetra — Intelligence Systems. Building autonomous AI solutions, data pipelines, and intelligent software architecture for the modern enterprise." />
   <meta name="theme-color" content="#07080d" />
   <title>Mecasimetra — Intelligence Systems</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://waste1and.github.io/Mecasimetra/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2307080d'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='800' font-size='58' fill='%2300d4ff'>M</text></svg>" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://waste1and.github.io/Mecasimetra/" />
+  <meta property="og:title"       content="Mecasimetra — Intelligence Systems" />
+  <meta property="og:description" content="Architecting autonomous AI solutions, data pipelines, and intelligent software for the modern enterprise." />
+  <meta property="og:image"       content="https://waste1and.github.io/Mecasimetra/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Mecasimetra — Intelligence Systems" />
+  <meta name="twitter:description" content="Architecting autonomous AI solutions, data pipelines, and intelligent software for the modern enterprise." />
+  <meta name="twitter:image"       content="https://waste1and.github.io/Mecasimetra/og-image.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -597,7 +617,8 @@
 
         <!-- Right: form -->
         <div class="reveal reveal-delay-2">
-          <form id="contact-form" novalidate>
+          <!-- Replace YOUR_FORM_ID with the ID from https://formspree.io/forms -->
+          <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Name</label>
@@ -645,7 +666,7 @@
   <footer>
     <div class="footer-inner">
       <p class="footer-copy">
-        © 2025 <span>Mecasimetra</span>. Intelligence Systems.
+        © <span id="footer-year">2025</span> <span>Mecasimetra</span>. Intelligence Systems.
       </p>
       <ul class="footer-links">
         <li><a href="#about">About</a></li>
