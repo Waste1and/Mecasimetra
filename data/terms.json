@@ -1,0 +1,88 @@
+{
+  "terms": [
+    {
+      "id": "continuity",
+      "symbol": "C",
+      "label": "Continuity",
+      "short": "The capacity of a system to persist, adapt, and remain coherent over time.",
+      "definition": "Continuity is the foundational principle underlying all kappology theory. It describes a system's ability to maintain functional identity across changes in state, load, or environment. A continuous system does not simply survive — it adapts without losing coherence. Continuity is not binary: it is measured on a scalar spectrum, quantified by κ.",
+      "parents": [],
+      "related": ["kappa", "hazard-rate", "kappology"],
+      "formula": null,
+      "category": "foundation"
+    },
+    {
+      "id": "hazard-rate",
+      "symbol": "λ",
+      "label": "Hazard Rate",
+      "short": "Instantaneous rate of system failure or degradation risk (λ ≥ 0).",
+      "definition": "The hazard rate λ (lambda) measures the instantaneous likelihood of system failure or degradation at a given moment. Derived from reliability engineering and survival analysis, λ ≥ 0 at all times. A low λ indicates a healthy, stable system. As λ rises, the system accumulates risk. When λ exceeds the bifurcation threshold β_c, the system must respond — through load-shedding, retraining, or controlled pause.",
+      "parents": ["continuity"],
+      "related": ["kappa", "bifurcation-threshold", "kappology"],
+      "formula": "λ(t) ≥ 0",
+      "category": "measurement"
+    },
+    {
+      "id": "kappa",
+      "symbol": "κ",
+      "label": "Kappa — Continuity Scalar",
+      "short": "A scalar in [0,1] measuring system health as a function of accumulated hazard.",
+      "definition": "κ (kappa) is the continuity scalar: the primary health metric in kappology theory. It is defined as κ = exp(−∫λ dt), the exponential decay of accumulated hazard over time. When λ is low and the system is healthy, κ approaches 1.0. As hazard accumulates, κ approaches 0. A κ below a critical threshold signals the need for intervention — retrain, shed load, or pause the system. κ is the heartbeat of a continuity-first architecture.",
+      "parents": ["continuity", "hazard-rate"],
+      "related": ["bifurcation-threshold", "kappology"],
+      "formula": "κ = exp(−∫₀ᵗ λ(s) ds)",
+      "category": "core-metric"
+    },
+    {
+      "id": "bifurcation-threshold",
+      "symbol": "β_c",
+      "label": "Bifurcation Threshold",
+      "short": "Critical threshold β_c = 2.0; when λ exceeds β_c the system must act.",
+      "definition": "The bifurcation threshold β_c defines the boundary between stable operation and critical system risk. When the hazard rate λ exceeds β_c (canonical value: 2.0), the system has passed a bifurcation point — it can no longer self-correct through normal operation alone. At this point the governance layer must intervene: shed load, trigger a retraining cycle, or enter a controlled pause. β_c is non-negotiable and cannot be bypassed by software logic.",
+      "parents": ["kappa", "hazard-rate"],
+      "related": ["continuity", "kappology"],
+      "formula": "β_c = 2.0 (canonical); trigger when λ > β_c",
+      "category": "governance"
+    },
+    {
+      "id": "kappology",
+      "symbol": "𝕂",
+      "label": "Kappology",
+      "short": "Formal discipline for continuity-first control systems, founded by Zechariah Slaughter.",
+      "definition": "Kappology is the formal study and engineering practice of continuity-first control systems, defined through the κ–λ–β_c framework. Founded by Zechariah Slaughter, kappology provides rigorous methods for measuring, governing, and preserving system continuity under real-world conditions of load, noise, and adversarial pressure. Where Newton formalised motion and Edison turned theory into applied machinery, kappology formalises the governance of intelligent systems — building control architectures that do not merely respond to failure, but anticipate and prevent discontinuity.",
+      "parents": ["kappa", "continuity", "hazard-rate", "bifurcation-threshold"],
+      "related": [],
+      "formula": "κ ∈ [0,1]; λ ≥ 0; β_c = 2.0",
+      "category": "discipline"
+    },
+    {
+      "id": "load-shedding",
+      "symbol": "Λ↓",
+      "label": "Load Shedding",
+      "short": "Deliberate reduction of system load when λ approaches or exceeds β_c.",
+      "definition": "Load shedding is the controlled, deliberate reduction of workload or service scope when a system's hazard rate λ approaches or exceeds the bifurcation threshold β_c. Rather than allowing the system to fail catastrophically, load shedding preserves κ by reducing the inputs that drive λ higher. Effective load-shedding governance is a core pillar of kappology-based control software design.",
+      "parents": ["bifurcation-threshold", "kappa"],
+      "related": ["hazard-rate", "kappology"],
+      "formula": null,
+      "category": "governance"
+    },
+    {
+      "id": "retrain-trigger",
+      "symbol": "Ρ",
+      "label": "Retrain Trigger",
+      "short": "Automated retraining event initiated when κ falls below a defined threshold.",
+      "definition": "A retrain trigger is the automated governance signal that initiates a model or system retraining cycle when κ drops below a defined lower bound. In a kappology-governed architecture, retrain triggers are tied directly to κ measurements — not to calendar schedules or manual observation. This ensures that a system's internal model of the world is updated precisely when hazard accumulation indicates model drift or environmental shift.",
+      "parents": ["kappa", "bifurcation-threshold"],
+      "related": ["load-shedding", "hazard-rate"],
+      "formula": "Trigger when κ < κ_min",
+      "category": "governance"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "framework": "κ–λ–β_c",
+    "founder": "Zechariah Slaughter",
+    "discipline": "Kappology",
+    "description": "Canonical term definitions for the Mecasimetra / Kappology knowledge graph"
+  }
+}

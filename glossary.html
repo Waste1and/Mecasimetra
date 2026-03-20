@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mecasimetra Kappology Glossary — κ–λ–β_c knowledge graph with animated ancestor transitions. Formal definitions for continuity-first control systems." />
+  <meta name="theme-color" content="#04040a" />
+  <meta name="site-base" content="." />
+  <title>Kappology Glossary — Mecasimetra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/glossary.css" />
+</head>
+<body>
+
+  <!-- Particle canvas -->
+  <canvas id="canvas-bg" aria-hidden="true"></canvas>
+
+  <!-- ══ NAVIGATION ══════════════════════════ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Mecasimetra home">
+        <div class="nav-logo-mark">M</div>
+        <span class="nav-logo-text">Mecasimetra</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="glossary.html" class="nav-active">Glossary</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+      </ul>
+
+      <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ GLOSSARY HERO ════════════════════════ -->
+  <section class="glossary-hero">
+    <div class="container">
+      <div class="glossary-hero-inner">
+        <p class="section-label">Kappology Knowledge Graph</p>
+        <h1 class="glossary-title">
+          The <span class="accent">κ–λ–β<sub>c</sub></span> Lexicon
+        </h1>
+        <p class="glossary-subtitle">
+          Formal definitions for continuity-first control systems. Navigate the
+          knowledge graph — each term links to its ancestors through animated
+          transitions. Press <kbd>/</kbd> to search.
+        </p>
+        <div class="glossary-meta">
+          <span class="glossary-meta-item">
+            <span class="glossary-meta-icon">𝕂</span>
+            Founded by <strong>Zechariah Slaughter</strong>
+          </span>
+          <span class="glossary-meta-sep">·</span>
+          <span class="glossary-meta-item">
+            Framework: <code>κ = exp(−∫λ dt)</code>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ GLOSSARY LAYOUT ══════════════════════ -->
+  <section class="glossary-section">
+    <div class="container">
+      <div class="glossary-layout">
+
+        <!-- Left: term list + search -->
+        <aside class="glossary-sidebar" aria-label="Term list">
+          <div class="sidebar-search-wrap">
+            <input
+              type="search"
+              id="glossary-search"
+              class="sidebar-search"
+              placeholder="Search terms… (press /)"
+              aria-label="Search glossary terms"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <span class="search-icon" aria-hidden="true">⌕</span>
+          </div>
+          <div id="glossary-loading" class="glossary-loading" aria-live="polite">Loading terms…</div>
+          <ul id="term-list" class="term-list" role="listbox" aria-label="Kappology terms"></ul>
+        </aside>
+
+        <!-- Right: detail + graph -->
+        <main class="glossary-main" aria-live="polite">
+
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="breadcrumbs" aria-label="Concept ancestry"></nav>
+
+          <!-- Back button -->
+          <button id="glossary-back" class="glossary-back-btn" aria-label="Go back">← Back</button>
+
+          <!-- Ancestor graph -->
+          <div class="graph-wrap">
+            <svg id="ancestor-graph" class="ancestor-graph" role="img" aria-label="Ancestor concept graph" viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet">
+              <text x="50%" y="50%" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="14" font-family="Inter, sans-serif">
+                Select a term to visualise its ancestors
+              </text>
+            </svg>
+          </div>
+
+          <!-- Term detail panel -->
+          <div id="term-detail" class="term-detail">
+            <div class="term-detail-empty">
+              <div class="empty-symbol">𝕂</div>
+              <h2 class="empty-title">Select a term</h2>
+              <p class="empty-desc">
+                Choose any term from the list to see its full definition,
+                formula, and animated ancestor graph.
+              </p>
+              <div class="empty-shortcuts">
+                <span>Press <kbd>/</kbd> to search</span>
+                <span>·</span>
+                <span>Click a node in the graph to navigate</span>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTRIBUTE SECTION ═══════════════════ -->
+  <section class="contribute-section">
+    <div class="container">
+      <div class="contribute-inner reveal">
+        <div class="contribute-text">
+          <h2 class="contribute-title">Extend the Knowledge Graph</h2>
+          <p class="contribute-desc">
+            The kappology lexicon is designed to grow. Contributions are
+            welcome via pull request — see <strong>CONTRIBUTING.md</strong>
+            in the repository for the term schema and guidelines.
+          </p>
+        </div>
+        <div class="contribute-actions">
+          <a href="https://github.com/Waste1and/Mecasimetra/blob/main/CONTRIBUTING.md"
+             class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            Contributing Guide →
+          </a>
+          <a href="https://github.com/Waste1and/Mecasimetra/blob/main/data/terms.json"
+             class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            View terms.json →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-copy">
+        © 2025 <span>Mecasimetra</span>. Kappology — founded by <span>Zechariah Slaughter</span>.
+      </p>
+      <ul class="footer-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/glossary.js"></script>
+</body>
+</html>
