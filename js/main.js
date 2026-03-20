@@ -94,6 +94,7 @@ if (hamburger) {
       navLinks.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+      hamburger.setAttribute('aria-expanded', 'false');
     });
   });
 }
