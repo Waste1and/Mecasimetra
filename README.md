@@ -1,6 +1,13 @@
-# Mecasimetra — Intelligence Systems
+# Mecasimetra — Kappology · Intelligence Systems
 
-> Architecting autonomous AI solutions, data pipelines, and intelligent software for the modern enterprise.
+> Continuity-first control systems, built on the κ–λ–β_c framework.  
+> Founded by **Zechariah Slaughter** — Engineer and Founder of Kappology.
+
+[![Apache-2.0 license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Static Site](https://img.shields.io/badge/type-static%20site-lightgrey)](index.html)
+[![GitHub Pages](https://img.shields.io/badge/deploy-GitHub%20Pages-green)](https://waste1and.github.io/Mecasimetra/)
+
+---
 
 ## Live Site
 
@@ -22,12 +29,22 @@ Open `index.html` in any browser for local development. No build step required.
     └── main.js         # Particles, scroll reveals, nav, theme toggle, modals, forms
 ```
 
-## Sections
+---
+
+## Pages and Sections
+
+### `index.html`
 
 - **Hero** — animated particle background, headline, key stats, early-access CTA
 - **About** — interactive terminal animation, values
 - **Skills** — ML/AI, Data Engineering, Cloud, Software, Agents, Analytics
-- **Services** — four core service offerings
+- **Services** — Six offerings including kappology-specific services:
+  1. Continuity Audit (κ–λ health modelling)
+  2. Hazard-Rate Instrumentation (λ pipelines)
+  3. Control Software & Load-Shedding Governance
+  4. AI & ML Systems Engineering
+  5. Data Platform Architecture
+  6. Custom Consulting & Architecture Advisory
 - **Projects** — six project showcase cards
 - **Contact** — contact methods and enquiry form (Formspree)
 - **Sign-Up Modal** — waitlist / early-access sign-up (Formspree)
@@ -70,3 +87,35 @@ The `CNAME` file is already configured. To activate:
 
 Push to `main` → GitHub Actions builds with Jekyll → deploys to GitHub Pages automatically.
 
+No build step required. Pure HTML/CSS/JS.
+
+---
+
+## Contributing to the Glossary
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+
+- The `terms.json` schema
+- Field rules and category values
+- Pull request process and review criteria
+
+The knowledge graph is designed to grow. Contributions that extend the κ–λ–β_c framework or add closely related control-systems concepts are welcome.
+
+---
+
+## Legal & Licensing
+
+| File              | Purpose |
+|-------------------|---------|
+| [LICENSE](LICENSE)           | Apache-2.0 open-source license |
+| [SECURITY.md](SECURITY.md)   | How to report security vulnerabilities |
+| [DISCLAIMER.md](DISCLAIMER.md) | No warranty; no safety-critical use guarantee |
+
+This project is licensed under the **Apache-2.0** license, which provides:
+
+- Patent grant (broad protection for users and contributors)
+- Attribution requirements (preserve NOTICE and copyright)
+- Free for commercial and non-commercial use
+- No copyleft / no share-alike requirement
+
+If you are building production control software using the kappology framework, you are responsible for independent validation and any required certifications. See [DISCLAIMER.md](DISCLAIMER.md).
