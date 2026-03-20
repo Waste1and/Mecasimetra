@@ -1102,3 +1102,285 @@ footer {
   .skills-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
 }
+
+/* ── SKIP LINK ─────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--accent);
+  color: #07080d;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ── THEME TOGGLE ──────────────────────────── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-toggle {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: border-color var(--transition), background var(--transition);
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--border-accent);
+  background: var(--accent-dim);
+}
+
+html[data-theme="dark"] .theme-icon-light  { display: none; }
+html[data-theme="dark"] .theme-icon-dark   { display: block; }
+html[data-theme="light"] .theme-icon-dark  { display: none; }
+html[data-theme="light"] .theme-icon-light { display: block; }
+
+/* ── SIGN-UP NAV BUTTON ────────────────────── */
+.btn-signup {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-signup:hover {
+  background: var(--accent-dim);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* ── HERO SIGN-UP BUTTON ───────────────────── */
+.btn-signup-hero {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  padding: 0.8rem 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity var(--transition);
+}
+.btn-signup-hero:hover { opacity: 0.75; }
+
+/* ── FORM ERRORS ───────────────────────────── */
+.form-error {
+  display: block;
+  font-size: 0.72rem;
+  color: #ff5f57;
+  font-family: var(--font-mono);
+  margin-top: 0.2rem;
+  min-height: 1em;
+}
+
+.form-group input.invalid,
+.form-group textarea.invalid,
+.form-group select.invalid {
+  border-color: rgba(255, 95, 87, 0.6);
+  box-shadow: 0 0 0 3px rgba(255, 95, 87, 0.08);
+}
+
+/* ── SIGN-UP MODAL ─────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 8, 13, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay:not([hidden]) {
+  opacity: 1;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-accent);
+  border-radius: calc(var(--radius) * 1.5);
+  padding: 2.5rem;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 80px rgba(0, 212, 255, 0.06);
+  transform: translateY(16px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay:not([hidden]) .modal-card {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: var(--transition);
+  padding: 0;
+}
+.modal-close:hover {
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+
+.modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border-accent);
+  border-radius: 100px;
+  background: var(--accent-dim);
+  margin-bottom: 1rem;
+}
+
+.modal-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s infinite;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+  color: var(--text-primary);
+}
+
+.modal-sub {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+/* ── LIGHT THEME ───────────────────────────── */
+html[data-theme="light"] {
+  --bg-primary:    #f5f6fa;
+  --bg-secondary:  #eceef5;
+  --bg-card:       rgba(0, 0, 0, 0.03);
+  --accent:        #0095b8;
+  --accent-dim:    rgba(0, 149, 184, 0.1);
+  --accent-glow:   rgba(0, 149, 184, 0.3);
+  --accent-2:      #5b1de0;
+  --text-primary:  #111320;
+  --text-secondary:#4a5070;
+  --text-muted:    #8a90aa;
+  --border:        rgba(0, 0, 0, 0.08);
+  --border-accent: rgba(0, 149, 184, 0.35);
+}
+
+html[data-theme="light"] body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] nav.scrolled {
+  background: rgba(245, 246, 250, 0.92);
+}
+
+html[data-theme="light"] .nav-links {
+  background: transparent;
+}
+
+html[data-theme="light"] #canvas-bg {
+  opacity: 0.15;
+}
+
+html[data-theme="light"] .about-terminal {
+  background: #1a1d2e;
+}
+
+html[data-theme="light"] .service-card {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+html[data-theme="light"] .form-group input,
+html[data-theme="light"] .form-group textarea,
+html[data-theme="light"] .form-group select {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .form-group input::placeholder,
+html[data-theme="light"] .form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+html[data-theme="light"] .modal-card {
+  background: #ffffff;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.12), 0 0 40px rgba(0, 149, 184, 0.06);
+}
+
+html[data-theme="light"] .modal-overlay {
+  background: rgba(245, 246, 250, 0.75);
+}
+
+html[data-theme="light"] .hero-orb::before {
+  background: radial-gradient(circle at 40% 40%,
+    rgba(0, 149, 184, 0.1) 0%,
+    rgba(91, 29, 224, 0.05) 50%,
+    transparent 70%);
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-track { background: var(--bg-primary); }
+html[data-theme="light"] ::-webkit-scrollbar-thumb { background: var(--accent-dim); }
+
+@media (max-width: 768px) {
+  .nav-actions .btn-signup { display: none; }
+  .nav-actions { gap: 0.5rem; }
+}
