@@ -82,17 +82,17 @@ window.addEventListener('scroll', () => {
 
 if (hamburger) {
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
-    const isOpen = navLinks.classList.contains('open');
+    const isOpen = hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
-    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
       hamburger.setAttribute('aria-expanded', 'false');
     });
@@ -179,26 +179,181 @@ const counterObserver = new IntersectionObserver((entries) => {
 const heroStats = document.querySelector('.hero-stats');
 if (heroStats) counterObserver.observe(heroStats);
 
-/* ── CONTACT FORM ─────────────────────────── */
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const btn = form.querySelector('.btn-primary');
-    const originalText = btn.textContent;
-    btn.textContent = 'Message Sent ✓';
+/* ── THEME TOGGLE ─────────────────────────── */
+const THEME_KEY = 'mcs-theme';
+const htmlEl = document.documentElement;
+
+function applyTheme(theme) {
+  htmlEl.setAttribute('data-theme', theme);
+  localStorage.setItem(THEME_KEY, theme);
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved) {
+    applyTheme(saved);
+  } else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+  }
+})();
+
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = htmlEl.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+}
+
+/* ── SIGN-UP MODAL ────────────────────────── */
+const modal = document.getElementById('signup-modal');
+
+function openModal() {
+  if (!modal) return;
+  modal.removeAttribute('hidden');
+  document.body.style.overflow = 'hidden';
+  const firstInput = modal.querySelector('input:not([type="hidden"]):not([tabindex="-1"])');
+  if (firstInput) firstInput.focus();
+}
+
+function closeModal() {
+  if (!modal) return;
+  modal.setAttribute('hidden', '');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('#open-signup, #open-signup-hero').forEach(btn => {
+  btn.addEventListener('click', () => {
+    openModal();
+    if (typeof plausible !== 'undefined') plausible('Signup Modal Opened');
+  });
+});
+
+const closeBtn = document.getElementById('close-signup');
+if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+if (modal) {
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+  });
+}
+
+/* ── FORM HELPERS ─────────────────────────── */
+function validateField(input, errorId, message) {
+  const err = document.getElementById(errorId);
+  if (!input.value.trim() || (input.type === 'email' && !input.checkValidity())) {
+    if (err) err.textContent = message;
+    input.classList.add('invalid');
+    return false;
+  }
+  if (err) err.textContent = '';
+  input.classList.remove('invalid');
+  return true;
+}
+
+function setSubmitState(btn, state) {
+  if (state === 'sending') {
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+  } else if (state === 'success') {
+    btn.textContent = 'Sent ✓';
     btn.style.background = '#28c840';
     btn.style.boxShadow = '0 4px 20px rgba(40, 200, 64, 0.4)';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = originalText;
-      btn.style.background = '';
-      btn.style.boxShadow = '';
-      btn.disabled = false;
-      form.reset();
-    }, 3500);
+  } else if (state === 'error') {
+    btn.textContent = 'Try Again';
+    btn.style.background = '';
+    btn.style.boxShadow = '';
+    btn.disabled = false;
+  } else {
+    btn.textContent = btn.dataset.original;
+    btn.style.background = '';
+    btn.style.boxShadow = '';
+    btn.disabled = false;
+  }
+}
+
+/* Replace with your actual Formspree endpoint IDs from formspree.io */
+const CONTACT_ENDPOINT  = 'https://formspree.io/f/YOUR_CONTACT_FORM_ID';
+const SIGNUP_ENDPOINT   = 'https://formspree.io/f/YOUR_SIGNUP_FORM_ID';
+
+if (CONTACT_ENDPOINT.includes('YOUR_') || SIGNUP_ENDPOINT.includes('YOUR_')) {
+  console.warn('[Mecasimetra] Formspree endpoints are not configured. Replace YOUR_CONTACT_FORM_ID and YOUR_SIGNUP_FORM_ID in js/main.js with real IDs from formspree.io.');
+}
+
+async function submitToFormspree(endpoint, formEl, btn) {
+  if (!btn.dataset.original) btn.dataset.original = btn.textContent;
+  setSubmitState(btn, 'sending');
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(formEl)
+    });
+
+    if (res.ok) {
+      setSubmitState(btn, 'success');
+      setTimeout(() => {
+        setSubmitState(btn, 'reset');
+        formEl.reset();
+      }, 3500);
+      return true;
+    } else {
+      throw new Error('Server error');
+    }
+  } catch {
+    setSubmitState(btn, 'error');
+    return false;
+  }
+}
+
+/* ── CONTACT FORM ─────────────────────────── */
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const nameOk  = validateField(contactForm.querySelector('#name'),    'err-name',    'Name is required.');
+    const emailOk = validateField(contactForm.querySelector('#email'),   'err-email',   'A valid email is required.');
+    const msgOk   = validateField(contactForm.querySelector('#message'), 'err-message', 'Please describe your project.');
+
+    if (!nameOk || !emailOk || !msgOk) return;
+
+    const btn = document.getElementById('contact-submit');
+    const ok = await submitToFormspree(CONTACT_ENDPOINT, contactForm, btn);
+    if (ok && typeof plausible !== 'undefined') plausible('Contact Form Submitted');
   });
 }
+
+/* ── SIGNUP FORM ──────────────────────────── */
+const signupForm = document.getElementById('signup-form');
+if (signupForm) {
+  signupForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const nameOk  = validateField(signupForm.querySelector('#su-name'),  'err-su-name',  'Name is required.');
+    const emailOk = validateField(signupForm.querySelector('#su-email'), 'err-su-email', 'A valid email is required.');
+
+    if (!nameOk || !emailOk) return;
+
+    const btn = document.getElementById('signup-submit');
+    const ok = await submitToFormspree(SIGNUP_ENDPOINT, signupForm, btn);
+    if (ok) {
+      if (typeof plausible !== 'undefined') plausible('Sign Up Completed');
+      setTimeout(closeModal, 3500);
+    }
+  });
+}
+
+/* ── FOOTER YEAR ──────────────────────────── */
+const yearEl = document.getElementById('footer-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ── ACTIVE NAV LINK ──────────────────────── */
 const sections = document.querySelectorAll('section[id]');
@@ -215,3 +370,4 @@ window.addEventListener('scroll', () => {
     a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
   });
 }, { passive: true });
+

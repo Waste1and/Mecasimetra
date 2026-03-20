@@ -11,78 +11,22 @@
 
 ## Live Site
 
-Open `index.html` in any browser, or visit the deployed site at:  
-**[https://waste1and.github.io/Mecasimetra/](https://waste1and.github.io/Mecasimetra/)**
+**Domain**: [mecasimetra.com](https://mecasimetra.com)  
+GitHub Pages fallback: `https://waste1and.github.io/Mecasimetra/`
 
----
-
-## Visual Theme
-
-The site uses a **black neon + magenta** design language:
-
-| Design token     | Value                          |
-|-----------------|-------------------------------|
-| Background       | Near-black `#04040a`          |
-| Primary accent   | Neon magenta `#f700ff`        |
-| Secondary accent | Electric cyan `#00e8ff`       |
-| Text primary     | Off-white `#e8eaf0`           |
-| Glow             | `rgba(247, 0, 255, 0.45)`     |
-| Font sans        | Inter (Google Fonts)          |
-| Font mono        | JetBrains Mono (Google Fonts) |
-
-Particle background, glow borders, and animated elements use the magenta palette throughout. Reduced-motion support is built in (`prefers-reduced-motion`).
-
----
-
-## The Kappology Framework
-
-Kappology is the formal engineering discipline for continuity-first control systems, founded by **Zechariah Slaughter**.
-
-The framework is built on three core quantities:
-
-| Symbol | Name                   | Definition                                              |
-|--------|------------------------|---------------------------------------------------------|
-| `κ`    | Continuity Scalar      | `κ = exp(−∫λ dt)` — system health in `[0, 1]`          |
-| `λ`    | Hazard Rate            | Instantaneous risk of degradation or failure, `λ ≥ 0`  |
-| `β_c`  | Bifurcation Threshold  | Canonical value `2.0`; when `λ > β_c`, intervene       |
-
-When `λ > β_c`, the system must respond: shed load, trigger retraining, or enter controlled pause. This governance logic is non-bypassable in a kappology-compliant architecture.
-
-> In the tradition of Newton's formal, mathematical accounts of natural behaviour — and Edison's relentless application of theory to working machinery — Zechariah Slaughter's kappology formalises the governance of intelligent systems that must not fail.
-
----
-
-## Knowledge Graph — Interactive Glossary
-
-The glossary at [`glossary.html`](glossary.html) provides:
-
-- **Animated ancestor transitions** — click any term to see its full ancestry chain visualised as an SVG graph with magenta/cyan glow nodes
-- **Breadcrumb navigation** — click ancestors in the breadcrumb bar to navigate the concept tree
-- **Deep links** — each term has a URL: `glossary.html#/term/kappa`
-- **Search** — press `/` to focus search; filters terms in real time
-- **Extensible data** — all terms live in [`data/terms.json`](data/terms.json)
-
-Current terms: κ (kappa) · λ (hazard rate) · β_c (bifurcation threshold) · Continuity · Kappology · Load Shedding · Retrain Trigger
-
----
+Open `index.html` in any browser for local development. No build step required.
 
 ## Structure
 
 ```
-├── index.html           # Main site (hero, about, founder, skills, services, projects, contact)
-├── glossary.html        # Interactive Kappology knowledge graph
+├── index.html          # Single-page portfolio site
+├── CNAME               # Custom domain — mecasimetra.com
+├── robots.txt          # Crawler directives
+├── sitemap.xml         # XML sitemap
 ├── css/
-│   ├── style.css        # Main theme (black neon + magenta)
-│   └── glossary.css     # Glossary-specific layout and graph styles
-├── js/
-│   ├── main.js          # Particle canvas, nav, scroll reveal, typing, counters, contact form
-│   └── glossary.js      # Knowledge graph: term loading, SVG rendering, transitions, search
-├── data/
-│   └── terms.json       # Kappology term definitions (extensible)
-├── LICENSE              # Apache-2.0
-├── SECURITY.md          # Vulnerability reporting policy
-├── DISCLAIMER.md        # No warranty; no safety-critical guarantee
-└── CONTRIBUTING.md      # How to add terms to the knowledge graph
+│   └── style.css       # Dark + light theme, animations, responsive layout
+└── js/
+    └── main.js         # Particles, scroll reveals, nav, theme toggle, modals, forms
 ```
 
 ---
@@ -91,9 +35,8 @@ Current terms: κ (kappa) · λ (hazard rate) · β_c (bifurcation threshold) ·
 
 ### `index.html`
 
-- **Hero** — animated particle background; κ-themed headline and stats
-- **About** — Mecasimetra practice overview and terminal animation
-- **Founder** — Zechariah Slaughter, Engineer and Founder of Kappology; inspiration, quote, and links
+- **Hero** — animated particle background, headline, key stats, early-access CTA
+- **About** — interactive terminal animation, values
 - **Skills** — ML/AI, Data Engineering, Cloud, Software, Agents, Analytics
 - **Services** — Six offerings including kappology-specific services:
   1. Continuity Audit (κ–λ health modelling)
@@ -103,25 +46,46 @@ Current terms: κ (kappa) · λ (hazard rate) · β_c (bifurcation threshold) ·
   5. Data Platform Architecture
   6. Custom Consulting & Architecture Advisory
 - **Projects** — six project showcase cards
-- **Contact** — contact methods and enquiry form
+- **Contact** — contact methods and enquiry form (Formspree)
+- **Sign-Up Modal** — waitlist / early-access sign-up (Formspree)
 
-### `glossary.html`
+## Setup
 
-Interactive knowledge graph. See [Knowledge Graph](#knowledge-graph--interactive-glossary) above.
+### 1. Formspree (email delivery)
 
----
+1. Create a free account at [formspree.io](https://formspree.io)
+2. Create **two forms**:
+   - **Contact** form → copy the form ID (e.g. `xabc1234`)
+   - **Sign-Up / Waitlist** form → copy its form ID
+3. In `js/main.js`, replace the placeholders:
+   ```js
+   const CONTACT_ENDPOINT = 'https://formspree.io/f/YOUR_CONTACT_FORM_ID';
+   const SIGNUP_ENDPOINT  = 'https://formspree.io/f/YOUR_SIGNUP_FORM_ID';
+   ```
 
-## Founder Attribution
+### 2. Plausible Analytics (privacy-first)
 
-**Zechariah Slaughter** is the Engineer and Founder of Mecasimetra and the founder of Kappology. The site presents him as building continuity-first systems in the tradition of Newton's formal rigour and Edison's applied innovation. This framing is inspirational and stylistic — see [DISCLAIMER.md](DISCLAIMER.md) for the full legal context.
+1. Create an account at [plausible.io](https://plausible.io)
+2. Add site with domain `mecasimetra.com`
+3. The script is already in `<head>` — no further changes needed:
+   ```html
+   <script defer data-domain="mecasimetra.com" src="https://plausible.io/js/script.js"></script>
+   ```
+   Custom events tracked: `Contact Form Submitted`, `Sign Up Completed`, `Signup Modal Opened`.
 
----
+### 3. Custom Domain (mecasimetra.com)
 
-## Deployment (GitHub Pages)
-
+The `CNAME` file is already configured. To activate:
 1. Go to **Settings → Pages** in this repository
-2. Set **Source** to `main` branch, `/ (root)` folder
-3. Save — the site will be live at `https://waste1and.github.io/Mecasimetra/`
+2. Under **Custom domain**, enter `mecasimetra.com` and save
+3. In your DNS provider, add:
+   - `A` records pointing to GitHub Pages IPs (`185.199.108.153` etc.)
+   - Or a `CNAME` record: `www → waste1and.github.io`
+4. Enable **Enforce HTTPS** once DNS propagates
+
+## Deployment
+
+Push to `main` → GitHub Actions builds with Jekyll → deploys to GitHub Pages automatically.
 
 No build step required. Pure HTML/CSS/JS.
 

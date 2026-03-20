@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,9 +9,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Privacy-first analytics (Plausible) — replace data-domain if needed -->
+  <script defer data-domain="mecasimetra.com" src="https://plausible.io/js/script.js"></script>
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+  <a href="#hero" class="skip-link">Skip to main content</a>
 
   <!-- Particle canvas -->
   <canvas id="canvas-bg" aria-hidden="true"></canvas>
@@ -32,6 +38,14 @@
         <li><a href="glossary.html">Glossary</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme">
+          <span class="theme-icon-dark">☀️</span>
+          <span class="theme-icon-light">🌙</span>
+        </button>
+        <button class="btn btn-signup" id="open-signup" aria-label="Get access">Get Access</button>
+      </div>
 
       <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -714,15 +728,21 @@
 
         <!-- Right: form -->
         <div class="reveal reveal-delay-2">
+          <!-- action: replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
           <form id="contact-form" novalidate>
+            <!-- Honeypot — hidden from real users, catches bots -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required />
+                <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+                <span class="form-error" id="err-name"></span>
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+                <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+                <span class="form-error" id="err-email"></span>
               </div>
             </div>
 
@@ -743,10 +763,11 @@
             <div class="form-group">
               <label for="message">Project Brief</label>
               <textarea id="message" name="message" placeholder="Tell me about your project, goals, and timeline…" required></textarea>
+              <span class="form-error" id="err-message"></span>
             </div>
 
             <div class="form-submit">
-              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+              <button type="submit" class="btn btn-primary" id="contact-submit" style="width:100%; justify-content:center;">
                 Send Message →
               </button>
             </div>
@@ -780,6 +801,58 @@
       </ul>
     </div>
   </footer>
+
+  <!-- ══ SIGN-UP MODAL ════════════════════════ -->
+  <div id="signup-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-card">
+      <button class="modal-close" id="close-signup" aria-label="Close sign-up modal">✕</button>
+
+      <div class="modal-header">
+        <div class="modal-badge">Early Access</div>
+        <h2 class="modal-title" id="modal-title">Join the Mecasimetra Network</h2>
+        <p class="modal-sub">
+          Be first to hear about new capabilities, published research, and select project openings.
+          No spam — ever.
+        </p>
+      </div>
+
+      <!-- replace YOUR_SIGNUP_FORM_ID with your Formspree sign-up form ID -->
+      <form id="signup-form" novalidate>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="form-group">
+          <label for="su-name">Name</label>
+          <input type="text" id="su-name" name="name" placeholder="Your name" required autocomplete="name" />
+          <span class="form-error" id="err-su-name"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="su-email">Email</label>
+          <input type="email" id="su-email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          <span class="form-error" id="err-su-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="su-interest">Primary Interest</label>
+          <select id="su-interest" name="interest">
+            <option value="" disabled selected>What interests you most?</option>
+            <option>AI / ML Engineering</option>
+            <option>Data Platform Architecture</option>
+            <option>Autonomous Agent Systems</option>
+            <option>Consulting &amp; Advisory</option>
+            <option>General Updates</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="signup-submit" style="width:100%; justify-content:center; margin-top:0.5rem;">
+          Request Access →
+        </button>
+        <p class="form-note" style="text-align:center; margin-top:0.75rem;">
+          <span>🔒</span> Privacy-first. Your data is never sold or shared with third parties.
+        </p>
+      </form>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
