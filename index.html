@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mecasimetra — Intelligence Systems. Building autonomous AI solutions, data pipelines, and intelligent software architecture for the modern enterprise." />
+  <meta name="theme-color" content="#07080d" />
+  <title>Mecasimetra — Intelligence Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Particle canvas -->
+  <canvas id="canvas-bg" aria-hidden="true"></canvas>
+
+  <!-- ══ NAVIGATION ══════════════════════════ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Mecasimetra home">
+        <div class="nav-logo-mark">M</div>
+        <span class="nav-logo-text">Mecasimetra</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+
+      <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ═════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-inner container">
+      <!-- Left -->
+      <div class="hero-content">
+        <div class="hero-tag">Intelligence Systems</div>
+        <h1 class="hero-heading">
+          Engineering&nbsp;<span class="accent">Intelligent</span>
+          <span class="line2">Systems That Think</span>
+        </h1>
+        <p class="hero-sub">
+          Architecting autonomous AI solutions, data-driven pipelines, and
+          resilient software systems — transforming complex problems into
+          precise, scalable intelligence.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-primary">Explore Services</a>
+          <a href="#projects" class="btn btn-secondary">View Projects</a>
+        </div>
+      </div>
+
+      <!-- Right: visual orb -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-orb">
+          <div class="hero-orb-core">Mcs</div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value"><span data-count="50">0</span><span>+</span></div>
+            <div class="hero-stat-label">Systems Built</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value"><span data-count="99">0</span><span>%</span></div>
+            <div class="hero-stat-label">Uptime SLA</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value"><span data-count="8">0</span><span>+</span></div>
+            <div class="hero-stat-label">Years Deep Tech</div>
+          </div>
+        </div>
+
+        <div class="hero-floating-card card-1">
+          <div class="fc-label">Model Accuracy</div>
+          <div class="fc-value">98.4%</div>
+        </div>
+        <div class="hero-floating-card card-2">
+          <div class="fc-label">Inference Latency</div>
+          <div class="fc-value">&lt; 12ms</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Left: content -->
+        <div class="about-content">
+          <p class="section-label reveal">About Mecasimetra</p>
+          <h2 class="section-title reveal reveal-delay-1">
+            Where Precision Meets Intelligence
+          </h2>
+          <p class="reveal reveal-delay-2">
+            <strong>Mecasimetra</strong> is an intelligence systems practice
+            focused on building autonomous, data-driven software that operates
+            at the frontier of what machines can do. Every system is designed
+            with architectural clarity, mathematical precision, and real-world
+            resilience.
+          </p>
+          <p class="reveal reveal-delay-3">
+            From end-to-end <strong>ML pipelines</strong> and real-time
+            <strong>data infrastructure</strong> to bespoke AI agents and
+            enterprise integrations — the work spans the full stack of
+            intelligent systems engineering.
+          </p>
+          <p class="reveal reveal-delay-4">
+            The approach is deliberate: understand the problem deeply, model
+            it correctly, and build it to last.
+          </p>
+
+          <div class="about-values reveal reveal-delay-5">
+            <div class="value-card">
+              <div class="value-icon">⚡</div>
+              <div class="value-title">Performance-First</div>
+              <div class="value-desc">Every system optimised for latency, throughput, and scale.</div>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🔬</div>
+              <div class="value-title">Rigorous Science</div>
+              <div class="value-desc">Decisions backed by data, mathematics, and empirical testing.</div>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🏗️</div>
+              <div class="value-title">Durable Architecture</div>
+              <div class="value-desc">Clean, maintainable code built for evolution over years.</div>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🎯</div>
+              <div class="value-title">Outcome Focused</div>
+              <div class="value-desc">Delivery aligned to measurable business impact, not vanity metrics.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: terminal -->
+        <div class="reveal reveal-delay-2">
+          <div class="about-terminal">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">mecasimetra — zsh</span>
+            </div>
+            <div class="terminal-body">
+              <div class="t-line">
+                <span class="t-prompt">›</span>
+                <span class="t-cmd" data-text="whoami">whoami</span>
+              </div>
+              <div class="t-line">
+                <span class="t-output"><span class="highlight">Mecasimetra</span> — Intelligence Systems Engineer</span>
+              </div>
+              <div class="t-line">
+                <span class="t-prompt">›</span>
+                <span class="t-cmd" data-text="cat skills.txt | head -5">cat skills.txt | head -5</span>
+              </div>
+              <div class="t-line">
+                <span class="t-output"><span class="highlight">→</span> AI / ML Engineering</span>
+              </div>
+              <div class="t-line">
+                <span class="t-output"><span class="highlight">→</span> Data Engineering &amp; Pipelines</span>
+              </div>
+              <div class="t-line">
+                <span class="t-output"><span class="highlight">→</span> Systems Architecture</span>
+              </div>
+              <div class="t-line">
+                <span class="t-output"><span class="highlight">→</span> Automation &amp; Agents</span>
+              </div>
+              <div class="t-line">
+                <span class="t-output"><span class="highlight">→</span> Cloud Infrastructure</span>
+              </div>
+              <div class="t-line">
+                <span class="t-prompt">›</span>
+                <span class="t-cmd" data-text="echo $STATUS">echo $STATUS</span>
+              </div>
+              <div class="t-line">
+                <span class="t-output"><span class="highlight">AVAILABLE</span> — open to new projects</span>
+              </div>
+              <div class="t-line">
+                <span class="t-prompt">›</span>
+                <span class="t-cursor"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SKILLS ═══════════════════════════════ -->
+  <section id="skills">
+    <div class="container">
+      <div class="text-center">
+        <p class="section-label reveal">Technical Expertise</p>
+        <h2 class="section-title reveal reveal-delay-1">
+          Skills &amp; Technology Stack
+        </h2>
+        <p class="section-sub reveal reveal-delay-2">
+          A deep, cross-disciplinary skill set covering intelligence systems
+          from raw data to deployed models.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal reveal-delay-1">
+          <div class="skill-icon">🧠</div>
+          <div class="skill-name">Machine Learning &amp; AI</div>
+          <div class="skill-desc">
+            Building, training, and deploying production-grade ML models —
+            from classical algorithms to large-scale deep learning systems.
+          </div>
+          <div class="skill-tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">Hugging Face</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">LangChain</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-2">
+          <div class="skill-icon">🔄</div>
+          <div class="skill-name">Data Engineering</div>
+          <div class="skill-desc">
+            Architecting robust data pipelines, warehouse solutions, and
+            real-time streaming infrastructure at scale.
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Apache Spark</span>
+            <span class="tag">Kafka</span>
+            <span class="tag">dbt</span>
+            <span class="tag">Airflow</span>
+            <span class="tag">Snowflake</span>
+            <span class="tag">BigQuery</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-3">
+          <div class="skill-icon">☁️</div>
+          <div class="skill-name">Cloud &amp; Infrastructure</div>
+          <div class="skill-desc">
+            Deploying scalable, fault-tolerant systems on cloud platforms
+            with infrastructure-as-code and containerised workloads.
+          </div>
+          <div class="skill-tags">
+            <span class="tag">AWS</span>
+            <span class="tag">GCP</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">CI/CD</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-1">
+          <div class="skill-icon">⚙️</div>
+          <div class="skill-name">Software Engineering</div>
+          <div class="skill-desc">
+            Writing clean, performant, production-quality code across
+            multiple languages and paradigms with robust testing.
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Rust</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Go</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-2">
+          <div class="skill-icon">🤖</div>
+          <div class="skill-name">AI Agents &amp; Automation</div>
+          <div class="skill-desc">
+            Designing autonomous agent architectures that integrate with
+            APIs, tools, and real-world systems to drive end-to-end automation.
+          </div>
+          <div class="skill-tags">
+            <span class="tag">LLM Agents</span>
+            <span class="tag">RAG Systems</span>
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">OpenAI API</span>
+            <span class="tag">Tool Use</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-3">
+          <div class="skill-icon">📊</div>
+          <div class="skill-name">Analytics &amp; Visualisation</div>
+          <div class="skill-desc">
+            Transforming raw data into clear analytical narratives and
+            interactive dashboards that drive strategic decisions.
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Tableau</span>
+            <span class="tag">Plotly</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Jupyter</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SERVICES ══════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="grid-overlay" aria-hidden="true"></div>
+      <div style="position:relative; z-index:1;">
+        <p class="section-label reveal">What I Build</p>
+        <h2 class="section-title reveal reveal-delay-1">Services &amp; Offerings</h2>
+        <p class="section-sub reveal reveal-delay-2">
+          End-to-end intelligence systems delivery — from initial architecture
+          through to production deployment and ongoing optimisation.
+        </p>
+
+        <div class="services-grid">
+
+          <div class="service-card reveal reveal-delay-1">
+            <div class="service-num">01</div>
+            <div class="service-content">
+              <h3 class="service-title">AI &amp; ML Systems Engineering</h3>
+              <p class="service-desc">
+                Full-lifecycle machine learning — from problem framing and
+                data preparation through model development, evaluation, and
+                production deployment with monitoring and retraining pipelines.
+              </p>
+              <ul class="service-list">
+                <li>Custom model architecture &amp; training</li>
+                <li>MLOps pipelines &amp; model registries</li>
+                <li>Real-time &amp; batch inference systems</li>
+                <li>LLM fine-tuning &amp; RAG pipelines</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="service-card reveal reveal-delay-2">
+            <div class="service-num">02</div>
+            <div class="service-content">
+              <h3 class="service-title">Data Platform Architecture</h3>
+              <p class="service-desc">
+                Designing and building the data infrastructure that powers
+                intelligence — from ingestion and transformation to warehouse
+                design, governance, and data quality frameworks.
+              </p>
+              <ul class="service-list">
+                <li>Modern data stack implementation</li>
+                <li>Stream &amp; batch pipeline engineering</li>
+                <li>Data warehouse &amp; lakehouse design</li>
+                <li>Data contracts &amp; quality monitoring</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="service-card reveal reveal-delay-3">
+            <div class="service-num">03</div>
+            <div class="service-content">
+              <h3 class="service-title">Autonomous Agent Systems</h3>
+              <p class="service-desc">
+                Architecting AI agents and multi-agent workflows that reason,
+                plan, and act — automating complex business processes with
+                verifiable, auditable outputs.
+              </p>
+              <ul class="service-list">
+                <li>Agentic workflow design &amp; implementation</li>
+                <li>Tool-augmented LLM systems</li>
+                <li>Process automation &amp; orchestration</li>
+                <li>Human-in-the-loop system design</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="service-card reveal reveal-delay-4">
+            <div class="service-num">04</div>
+            <div class="service-content">
+              <h3 class="service-title">Systems Architecture &amp; Consulting</h3>
+              <p class="service-desc">
+                Strategic technical advisory for organisations building or
+                scaling AI-powered products — architecture reviews, technology
+                selection, and roadmap planning.
+              </p>
+              <ul class="service-list">
+                <li>AI readiness assessment</li>
+                <li>Architecture design &amp; review</li>
+                <li>Technology strategy &amp; selection</li>
+                <li>Technical due diligence</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ══════════════════════════════ -->
+  <section id="projects">
+    <div class="container">
+      <div class="projects-header">
+        <div>
+          <p class="section-label reveal">Selected Work</p>
+          <h2 class="section-title reveal reveal-delay-1">Projects &amp; Systems</h2>
+        </div>
+        <a href="#contact" class="btn btn-secondary reveal reveal-delay-2">Start a Project →</a>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-thumb">
+            <div class="project-thumb-inner">📡</div>
+          </div>
+          <div class="project-body">
+            <div class="project-cat">Real-Time ML</div>
+            <h3 class="project-title">Adaptive Signal Intelligence</h3>
+            <p class="project-desc">
+              Real-time anomaly detection engine processing 50k+ events/sec
+              with sub-20ms latency using streaming ML models and dynamic
+              threshold adaptation.
+            </p>
+            <div class="project-stack">
+              <span class="tag">Kafka</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Rust</span>
+              <span class="tag">Kubernetes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-thumb">
+            <div class="project-thumb-inner">🗄️</div>
+          </div>
+          <div class="project-body">
+            <div class="project-cat">Data Platform</div>
+            <h3 class="project-title">Unified Intelligence Lakehouse</h3>
+            <p class="project-desc">
+              Enterprise data lakehouse serving 200+ analysts, replacing
+              fragmented pipelines with a single, governed platform reducing
+              query times by 85%.
+            </p>
+            <div class="project-stack">
+              <span class="tag">Spark</span>
+              <span class="tag">Delta Lake</span>
+              <span class="tag">dbt</span>
+              <span class="tag">Airflow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-thumb">
+            <div class="project-thumb-inner">🤖</div>
+          </div>
+          <div class="project-body">
+            <div class="project-cat">AI Agents</div>
+            <h3 class="project-title">Autonomous Research Agent</h3>
+            <p class="project-desc">
+              Multi-agent system that autonomously gathers, synthesises, and
+              validates information across the web — producing structured
+              intelligence reports on demand.
+            </p>
+            <div class="project-stack">
+              <span class="tag">LangChain</span>
+              <span class="tag">GPT-4</span>
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-thumb">
+            <div class="project-thumb-inner">🔮</div>
+          </div>
+          <div class="project-body">
+            <div class="project-cat">Predictive Analytics</div>
+            <h3 class="project-title">Demand Forecasting Engine</h3>
+            <p class="project-desc">
+              Probabilistic demand forecasting system for a retail network —
+              combining gradient boosting with neural forecasters to reduce
+              inventory costs by 23%.
+            </p>
+            <div class="project-stack">
+              <span class="tag">XGBoost</span>
+              <span class="tag">NeuralProphet</span>
+              <span class="tag">MLflow</span>
+              <span class="tag">AWS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-thumb">
+            <div class="project-thumb-inner">🔐</div>
+          </div>
+          <div class="project-body">
+            <div class="project-cat">Security AI</div>
+            <h3 class="project-title">Threat Intelligence Classifier</h3>
+            <p class="project-desc">
+              NLP-based threat classification system processing security logs
+              and feeds in real time, surfacing actionable alerts with 96.8%
+              precision.
+            </p>
+            <div class="project-stack">
+              <span class="tag">Transformers</span>
+              <span class="tag">Elasticsearch</span>
+              <span class="tag">Python</span>
+              <span class="tag">Redis</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-thumb">
+            <div class="project-thumb-inner">🌐</div>
+          </div>
+          <div class="project-body">
+            <div class="project-cat">Infrastructure</div>
+            <h3 class="project-title">Distributed Inference Grid</h3>
+            <p class="project-desc">
+              Multi-region, auto-scaling model serving infrastructure capable
+              of handling variable traffic spikes with guaranteed SLA and
+              cost-optimised routing.
+            </p>
+            <div class="project-stack">
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Triton</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">GCP</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ═══════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: info -->
+        <div class="contact-info">
+          <p class="section-label reveal">Get In Touch</p>
+          <h2 class="section-title reveal reveal-delay-1">
+            Let's Build Something<br />Intelligent
+          </h2>
+          <p class="section-sub reveal reveal-delay-2">
+            Have a complex problem that needs intelligent software to solve?
+            Reach out — I take on a select number of projects at a time to
+            ensure quality delivery.
+          </p>
+
+          <div class="contact-methods reveal reveal-delay-3">
+            <a href="mailto:hello@mecasimetra.com" class="contact-method">
+              <div class="contact-method-icon">✉️</div>
+              <div>
+                <div class="contact-method-label">Email</div>
+                <div class="contact-method-value">hello@mecasimetra.com</div>
+              </div>
+            </a>
+            <a href="https://github.com/Waste1and" class="contact-method" target="_blank" rel="noopener noreferrer">
+              <div class="contact-method-icon">🐙</div>
+              <div>
+                <div class="contact-method-label">GitHub</div>
+                <div class="contact-method-value">github.com/Waste1and</div>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/mecasimetra" class="contact-method" target="_blank" rel="noopener noreferrer">
+              <div class="contact-method-icon">💼</div>
+              <div>
+                <div class="contact-method-label">LinkedIn</div>
+                <div class="contact-method-value">linkedin.com/in/mecasimetra</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="reveal reveal-delay-2">
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Project Type</label>
+              <select id="subject" name="subject">
+                <option value="" disabled selected>Select a service…</option>
+                <option>AI / ML Systems Engineering</option>
+                <option>Data Platform Architecture</option>
+                <option>Autonomous Agent Systems</option>
+                <option>Systems Architecture &amp; Consulting</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Project Brief</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project, goals, and timeline…" required></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+                Send Message →
+              </button>
+            </div>
+            <p class="form-note">
+              <span>🔒</span> Your information is kept confidential and never shared.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-copy">
+        © 2025 <span>Mecasimetra</span>. Intelligence Systems.
+      </p>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
