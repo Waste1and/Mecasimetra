@@ -6,6 +6,16 @@
 (function () {
   'use strict';
 
+  /* ── UTILITY ────────────────────────────────── */
+  function esc(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   /* ── DATA ───────────────────────────────────── */
   let TERMS = {};
   let currentTerm = null;
@@ -53,20 +63,20 @@
       li.dataset.id = t.id;
       li.style.animationDelay = `${idx * 40}ms`;
       li.innerHTML = `
-        <span class="term-symbol" aria-hidden="true">${t.symbol}</span>
-        <span class="term-item-label">${t.label}</span>
-        <span class="term-item-cat tag-cat-${t.category}">${t.category}</span>
+        <span class="term-symbol" aria-hidden="true">${esc(t.symbol)}</span>
+        <span class="term-item-label">${esc(t.label)}</span>
+        <span class="term-item-cat tag-cat-${esc(t.category)}">${esc(t.category)}</span>
       `;
       li.addEventListener('click', () => openTerm(t.id));
       li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openTerm(t.id); });
       li.setAttribute('tabindex', '0');
       li.setAttribute('role', 'button');
-      li.setAttribute('aria-label', `Open term: ${t.label}`);
+      li.setAttribute('aria-label', `Open term: ${esc(t.label)}`);
       termList.appendChild(li);
     });
 
     if (filtered.length === 0) {
-      termList.innerHTML = `<li class="term-empty">No terms match "${filter}".</li>`;
+      termList.innerHTML = `<li class="term-empty">No terms match &ldquo;${esc(filter)}&rdquo;.</li>`;
     }
   }
 
@@ -98,7 +108,7 @@
       ? term.parents.map(pid => {
           const p = TERMS[pid];
           return p
-            ? `<button class="ancestor-chip" data-id="${pid}">${p.symbol} ${p.label}</button>`
+            ? `<button class="ancestor-chip" data-id="${esc(pid)}">${esc(p.symbol)} ${esc(p.label)}</button>`
             : '';
         }).join('')
       : '<span class="no-ancestors">Root concept</span>';
@@ -107,31 +117,31 @@
       ? term.related.map(rid => {
           const r = TERMS[rid];
           return r
-            ? `<button class="related-chip" data-id="${rid}">${r.symbol} ${r.label}</button>`
+            ? `<button class="related-chip" data-id="${esc(rid)}">${esc(r.symbol)} ${esc(r.label)}</button>`
             : '';
         }).join('')
       : '';
 
     detailPanel.innerHTML = `
       <div class="detail-header">
-        <div class="detail-symbol">${term.symbol}</div>
+        <div class="detail-symbol">${esc(term.symbol)}</div>
         <div>
-          <h2 class="detail-title">${term.label}</h2>
-          <span class="detail-cat tag-cat-${term.category}">${term.category}</span>
+          <h2 class="detail-title">${esc(term.label)}</h2>
+          <span class="detail-cat tag-cat-${esc(term.category)}">${esc(term.category)}</span>
         </div>
       </div>
 
-      <p class="detail-short">${term.short}</p>
+      <p class="detail-short">${esc(term.short)}</p>
 
       <div class="detail-section">
         <h3 class="detail-section-title">Definition</h3>
-        <p class="detail-definition">${term.definition}</p>
+        <p class="detail-definition">${esc(term.definition)}</p>
       </div>
 
       ${term.formula ? `
       <div class="detail-section">
         <h3 class="detail-section-title">Formula</h3>
-        <code class="detail-formula">${term.formula}</code>
+        <code class="detail-formula">${esc(term.formula)}</code>
       </div>` : ''}
 
       <div class="detail-section">
@@ -231,7 +241,7 @@
       byDepth[n.depth].push(n);
     });
 
-    const maxDepth = Math.max(...nodes.map(n => n.depth));
+    const maxDepth = nodes.length > 0 ? Math.max(...nodes.map(n => n.depth), 0) : 0;
     nodes.forEach(n => {
       const cols = byDepth[n.depth];
       const colIdx = cols.indexOf(n);
@@ -248,8 +258,9 @@
     /* Build SVG */
     let svg = '';
 
-    /* Defs: gradient for active node */
-    svg += `<defs>
+    /* Defs: gradient for active node + accessibility title */
+    svg += `<title>Ancestor graph for ${esc(TERMS[rootId]?.label || rootId)}</title>
+    <defs>
       <radialGradient id="node-glow-active" cx="50%" cy="50%" r="50%">
         <stop offset="0%" stop-color="rgba(247,0,255,0.4)"/>
         <stop offset="100%" stop-color="rgba(247,0,255,0)"/>
@@ -283,8 +294,8 @@
       svg += `
         <circle class="graph-node-glow" cx="${n.x}" cy="${n.y}" r="${r + 16}" fill="url(#${glowId})" />
         <circle class="${cls}" cx="${n.x}" cy="${n.y}" r="${r}" data-id="${n.id}" />
-        <text class="graph-label${isRoot ? ' graph-label-active' : ''}" x="${n.x}" y="${n.y + 4}" text-anchor="middle">${n.term.symbol}</text>
-        <text class="graph-sublabel" x="${n.x}" y="${n.y + r + 14}" text-anchor="middle">${n.term.label.split('—')[0].trim()}</text>
+        <text class="graph-label${isRoot ? ' graph-label-active' : ''}" x="${n.x}" y="${n.y + 4}" text-anchor="middle">${esc(n.term.symbol)}</text>
+        <text class="graph-sublabel" x="${n.x}" y="${n.y + r + 14}" text-anchor="middle">${esc(n.term.label.split('—')[0].trim())}</text>
       `;
     });
 

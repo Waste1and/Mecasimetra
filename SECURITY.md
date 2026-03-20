@@ -25,13 +25,15 @@ Instead, report it privately:
 - Affected files or components
 - Your suggested fix (optional but appreciated)
 
-### Response timeline
+### Response timeline (aspirational — best effort, no guarantee)
 
 | Stage               | Target time   |
 | ------------------- | ------------- |
 | Initial response    | 48 hours      |
 | Triage/assessment   | 5 business days |
 | Fix or workaround   | 30 days (depending on severity) |
+
+These are aspirational goals, not contractual commitments. As noted below, this project has no formal security team and responses are provided on a best-efforts basis.
 
 ## Scope
 
