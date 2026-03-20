@@ -350,6 +350,10 @@ if (signupForm) {
   });
 }
 
+/* ── FOOTER YEAR ──────────────────────────── */
+const yearEl = document.getElementById('footer-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 /* ── ACTIVE NAV LINK ──────────────────────── */
 const sections = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
