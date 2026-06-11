@@ -1,0 +1,56 @@
+{
+  "name": "mecasimetra",
+  "version": "2.0.0",
+  "description": "Continuity-first intelligence systems flagship. Kappology framework interface.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.html --fix",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "security-audit": "npm audit --audit-level=moderate",
+    "lighthouse": "lighthouse https://waste1and.github.io/Mecasimetra/ --view",
+    "deploy": "npm run build && npm run test && git push origin main"
+  },
+  "dependencies": {
+    "plausible-tracker": "^0.3.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.0",
+    "@typescript-eslint/parser": "^7.14.0",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "lighthouse": "^11.4.0",
+    "prettier": "^3.3.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.3.0",
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "kappology",
+    "continuity-first",
+    "intelligence-systems",
+    "control-systems",
+    "hazard-rate",
+    "kappa-lambda-beta",
+    "ai",
+    "ml"
+  ],
+  "author": "Zechariah Slaughter",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Waste1and/Mecasimetra.git"
+  }
+}
