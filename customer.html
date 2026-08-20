@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mecasimetra customer savings, verified business identity, and share-only business network preview." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Customer — Mecasimetra Systems & Kappology</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/business.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="index.html"><span class="brand-mark">M</span><span class="brand-copy"><strong>Mecasimetra</strong><small>Customer control</small></span></a>
+      <a class="nav-action" href="index.html">Public site</a>
+    </div>
+  </header>
+  <main>
+    <section class="section customer-section">
+      <div class="shell customer-layout">
+        <div>
+          <div class="verified-business-card">
+            <div class="pine-badge" aria-label="Mecasimetra verified business">
+              <svg class="pine-logo" viewBox="0 0 64 76" role="img" aria-hidden="true">
+                <path d="M32 3 14 27h10L8 49h16L14 65h36L40 49h16L40 27h10L32 3Z" fill="currentColor"/>
+                <rect x="28" y="63" width="8" height="10" rx="2" fill="currentColor"/>
+              </svg>
+              <i>✓</i>
+            </div>
+            <div>
+              <p class="eyebrow">Verified business</p>
+              <h1 class="customer-title">Your business</h1>
+              <p class="customer-muted">The magenta pine identifies a Mecasimetra-verified business. Verification can be removed if eligibility changes.</p>
+              <div class="business-tags" aria-label="Business status"><span>Verified</span><span>Premium eligible</span><span>Discovery opt-in</span></div>
+            </div>
+          </div>
+
+          <section class="customer-panel" aria-labelledby="savings-heading">
+            <div class="customer-panel-head"><div><p class="eyebrow">Meca Verify</p><h2 id="savings-heading">Your savings</h2></div><span class="private-label">Private</span></div>
+            <div class="customer-stats">
+              <article><small>Qualified savings</small><strong data-stat="savings">—</strong><span>vs. verified baseline</span></article>
+              <article><small>Customer retained</small><strong data-stat="retained">—</strong><span>after Meca fee</span></article>
+              <article><small>Latency</small><strong data-stat="latency">—</strong><span>verified improvement</span></article>
+            </div>
+            <p class="measurement-note">Only customer-facing, qualified measurements are shown here. Internal routing, formulas, provider logic, treasury data, and proprietary Kappology methods remain private.</p>
+          </section>
+
+          <section class="customer-panel" aria-labelledby="benefits-heading">
+            <div class="customer-panel-head"><div><p class="eyebrow">Business benefits</p><h2 id="benefits-heading">Verified utility, not engagement pressure.</h2></div><span class="pine-mini" aria-label="Verified">PINE ✓</span></div>
+            <div class="benefit-grid">
+              <article><strong>Business discovery</strong><p>Opt in to a verified-business directory without follower counts or popularity ranking.</p></article>
+              <article><strong>Shareable milestones</strong><p>Share verified savings or service milestones externally without exposing private measurements by default.</p></article>
+              <article><strong>Team controls</strong><p>Manage workspace access, usage policy, notification roles, and future billing permissions.</p></article>
+              <article><strong>Business record</strong><p>Keep pricing schedule, promotion status, invoices, verification state, and service history together.</p></article>
+              <article><strong>Export & reporting</strong><p>Export approved customer-facing reports for accounting, operations, or procurement.</p></article>
+              <article><strong>Priority eligibility</strong><p>Verified Premium businesses can receive early access, promotional pricing, and expanded support when eligible.</p></article>
+            </div>
+          </section>
+        </div>
+
+        <aside>
+          <section class="customer-panel share-panel" aria-labelledby="share-heading">
+            <div class="customer-panel-head"><div><p class="eyebrow">Business post</p><h2 id="share-heading">Share a result</h2></div><span class="pine-mini" aria-label="Verified">PINE ✓</span></div>
+            <label class="post-label" for="business-post">100 characters maximum</label>
+            <textarea id="business-post" maxlength="100" rows="5" placeholder="Share a short business update." data-post-input></textarea>
+            <div class="post-actions"><span data-post-count>0 / 100</span><button class="button button-primary" type="button" data-share-button disabled>Share</button></div>
+            <p class="measurement-note">Posts have one action only: Share. No likes, comments, replies, follower counts, public reaction totals, or engagement scores.</p>
+          </section>
+
+          <section class="customer-panel post-preview" aria-live="polite">
+            <div class="post-author">
+              <span class="pine-avatar" aria-hidden="true"><svg class="pine-logo" viewBox="0 0 64 76"><path d="M32 3 14 27h10L8 49h16L14 65h36L40 49h16L40 27h10L32 3Z" fill="currentColor"/><rect x="28" y="63" width="8" height="10" rx="2" fill="currentColor"/></svg></span>
+              <div><strong>Verified business <span class="verify-check">✓</span></strong><small>Mecasimetra verified</small></div>
+            </div>
+            <p data-post-preview>Your 100-character business post will preview here.</p>
+            <button class="share-only" type="button" data-preview-share disabled>Share</button>
+          </section>
+
+          <section class="customer-panel business-control-panel" aria-labelledby="controls-heading">
+            <div class="customer-panel-head"><div><p class="eyebrow">Business control</p><h2 id="controls-heading">Manage</h2></div><span class="private-label">Account</span></div>
+            <div class="business-control-list">
+              <button type="button" disabled><span>Pricing & promotion</span><small>View current entitlement</small></button>
+              <button type="button" disabled><span>Team & roles</span><small>Workspace permissions</small></button>
+              <button type="button" disabled><span>Usage & budgets</span><small>Limits and notifications</small></button>
+              <button type="button" disabled><span>Reports</span><small>Approved customer exports</small></button>
+              <button type="button" disabled><span>Wallet & payout settings</span><small>Customer-authorized only</small></button>
+            </div>
+            <p class="measurement-note">Controls shown here are product architecture previews. Financial actions stay behind authorization and signing boundaries.</p>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
