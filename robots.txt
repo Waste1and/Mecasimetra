@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://waste1and.github.io/Mecasimetra/sitemap.xml
+Sitemap: https://mecasimetra.com/sitemap.xml
