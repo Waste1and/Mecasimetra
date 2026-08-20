@@ -27,6 +27,16 @@ The recurring systems hypothesis is:
 
 The κ–λ family, regime-detection work, and candidate pentagonal geometry are research components within that larger program. Cross-domain use requires domain-specific measurement, calibration, testing, and validation.
 
+## Product Research
+
+### Meca Prime
+
+Meca Prime is the first defined commercial inference-efficiency product under the professionalization program. It is designed as a minimal routing layer that selects the minimum sufficient inference route, protects an explicit quality policy, measures latency and cost, and attributes qualified savings.
+
+The proposed implementation combines a low-overhead Rust gateway, a Python intelligence/evaluation layer, OpenRouter integration, and a bounded Mecasimetra-hosted model for suitable low-complexity work. Complex work escalates to capable external models rather than forcing one model to handle every request.
+
+Performance pricing is tied only to **qualified savings** that pass the applicable quality and policy gates. See [`docs/MECA_PRIME.md`](docs/MECA_PRIME.md) for the experimental product, economics, ML, privacy, and engineering specification.
+
 ## Why This Exists
 
 This repository provides the flagship public surface for:
@@ -35,6 +45,7 @@ This repository provides the flagship public surface for:
 - Kappology research and terminology;
 - continuity-first systems thinking;
 - computing and AI engineering work;
+- Meca Prime inference-efficiency product research;
 - future agriculture, biomedical, energy, infrastructure, and industrial research surfaces;
 - reproducible proof-of-work and technical documentation; and
 - a deployable public site for future extensions.
@@ -69,6 +80,7 @@ For local viewing, open `index.html` in a browser. No build step is required.
 - `css/style.css` — theming, layout, animation, responsive behavior
 - `js/main.js` — navigation, interaction, theme, modal behavior, forms
 - `glossary.html` and `data/` — Kappology knowledge surface
+- `docs/MECA_PRIME.md` — Meca Prime product and economic specification
 - `BUSINESS_UPGRADE.md` — company expansion and professionalization roadmap
 - `CNAME` — custom domain configuration
 - `robots.txt` — crawler directives
@@ -76,6 +88,7 @@ For local viewing, open `index.html` in a browser. No build step is required.
 
 ## Roadmap
 
+- Build and benchmark the Meca Prime routing MVP.
 - Rebuild the public site around the full Mecasimetra Systems & Kappology company structure.
 - Remove or substantiate legacy showcase metrics.
 - Expand reproducible proof-of-work.
