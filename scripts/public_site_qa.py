@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parents[1]
 HTML_FILES=[ROOT/'index.html',ROOT/'glossary.html',ROOT/'customer.html']
-REQUIRED_FILES=[ROOT/'PRIVACY.md',ROOT/'TERMS.md',ROOT/'SECURITY.md',ROOT/'DISCLAIMER.md',ROOT/'IP_POLICY.md',ROOT/'NOTICE',ROOT/'docs'/'PUBLIC_PRIVATE_BOUNDARY.md',ROOT/'docs'/'OPERATIONS_GOVERNANCE.md',ROOT/'docs'/'BUSINESS_SERVICES_AND_PRICING.md',ROOT/'docs'/'MEASUREMENT_AND_TREASURY_MODEL.md']
+REQUIRED_FILES=[ROOT/'PRIVACY.md',ROOT/'TERMS.md',ROOT/'SECURITY.md',ROOT/'DISCLAIMER.md',ROOT/'IP_POLICY.md',ROOT/'NOTICE',ROOT/'docs'/'PUBLIC_PRIVATE_BOUNDARY.md',ROOT/'docs'/'OPERATIONS_GOVERNANCE.md',ROOT/'docs'/'BUSINESS_SERVICES_AND_PRICING.md',ROOT/'docs'/'MEASUREMENT_AND_TREASURY_MODEL.md',ROOT/'docs'/'VERIFIED_BUSINESS_NETWORK.md']
 class LinkParser(HTMLParser):
  def __init__(self): super().__init__(); self.links=[]; self.ids=set()
  def handle_starttag(self,tag,attrs):
@@ -38,14 +38,15 @@ def main():
  except Exception as e:failures.append(f'data/terms.json invalid: {e}')
  customer=(ROOT/'customer.html').read_text(encoding='utf-8') if (ROOT/'customer.html').exists() else ''
  if 'maxlength="100"' not in customer:failures.append('customer.html: post limit must be 100 characters')
- forbidden=['Like','Comment','Reply','Follower count']
- for word in forbidden:
+ for word in ['Like','Comment','Reply','Follower count']:
   if f'>{word}<' in customer:failures.append(f'customer.html: forbidden engagement action {word}')
  if 'data-share-button' not in customer or 'data-preview-share' not in customer:failures.append('customer.html: share-only controls missing')
- if 'pine-badge' not in customer or 'Verified business' not in customer:failures.append('customer.html: verified business badge missing')
+ if 'pine-logo' not in customer or 'Verified business' not in customer:failures.append('customer.html: magenta pine verified identity missing')
+ for marker in ['Business discovery','Team controls','Export & reporting','Pricing & promotion']:
+  if marker not in customer:failures.append(f'customer.html: missing business feature {marker}')
  for f in [ROOT/'robots.txt',ROOT/'sitemap.xml']:
   if not f.exists():failures.append(f'missing {f.name}')
  if failures:
   print('PUBLIC SITE QA FAILED'); [print('-',x) for x in failures]; return 1
- print('PUBLIC SITE QA PASSED'); print('Checked public pages, commercial docs, 100-character share-only posts, verified badge, glossary JSON, robots and sitemap.'); return 0
+ print('PUBLIC SITE QA PASSED'); print('Checked public pages, commercial docs, pine verification, business benefits, 100-character share-only posts, glossary JSON, robots and sitemap.'); return 0
 if __name__=='__main__':sys.exit(main())
