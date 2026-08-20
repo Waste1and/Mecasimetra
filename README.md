@@ -2,11 +2,9 @@
 
 **Mecasimetra Systems & Kappology** is a systems research and engineering company developing computational infrastructure, AI services, secure customer systems, and cross-domain technology.
 
-Founded by **Zechariah Slaughter**.
-
 ## Public Product Surface
 
-Mecasimetra is being organized as one customer system with a small set of understandable modules:
+Mecasimetra is organized around a small set of customer-facing modules:
 
 - **Meca ID** — minimal account identity and customer-controlled wallet linking;
 - **Meca Verify** — customer-visible measurement and attributable value reporting;
@@ -18,18 +16,13 @@ Mecasimetra is being organized as one customer system with a small set of unders
 
 The public repository documents product behavior, interfaces, customer protections, security reporting, legal boundaries, and UI design. Proprietary research, algorithms, benchmarks, calibration, routing logic, model-selection logic, security intelligence, internal datasets, and implementation methods are intentionally excluded from the public surface.
 
+## Kappology
+
+Kappology is the systems-research field developed within Mecasimetra Systems & Kappology. Public materials describe the field at a high level while private research methods remain protected.
+
 ## Public Design Rule
 
-Customers should be able to understand:
-
-- what a product does;
-- what data it needs;
-- what outcome it reports;
-- what a charge represents;
-- what action requires customer approval; and
-- what evidence supports a public claim.
-
-Customers do not need access to Mecasimetra's proprietary implementation methods to receive or verify the contracted outcome.
+Customers should be able to understand what a product does, what data it needs, what outcome it reports, what a charge represents, what action requires customer approval, and what evidence supports a public claim.
 
 ## Evidence Standard
 
@@ -39,7 +32,7 @@ Internal research results and benchmarks are not automatically public evidence. 
 
 ## Privacy and Security
 
-The initial account model is intentionally minimal. Wallet linking is designed around customer-controlled/self-custodial authentication. Mecasimetra does not require or request wallet seed phrases or private keys through normal product flows.
+The account model is intentionally minimal. Wallet linking is designed around customer-controlled/self-custodial authentication. Mecasimetra does not require or request wallet seed phrases or private keys through normal product flows.
 
 Customer production content is not training data by default. Product data collection should be limited to what is required to provide, secure, measure, support, and bill the selected service.
 
@@ -58,7 +51,6 @@ Current and planned work spans computing and AI, agriculture, biomedical systems
 - `docs/SOCIAL_LAYER.md` — minimal Meca ID/social-account model
 - `docs/PUBLIC_PRIVATE_BOUNDARY.md` — disclosure and IP-separation policy
 - `docs/OPERATIONS_GOVERNANCE.md` — operational-agent authority model
-- `docs/WEBSITE_RELEASE_PLAN.md` — final public-site implementation plan
 - `SECURITY.md` — vulnerability reporting and public security policy
 
 ## IP Boundary
