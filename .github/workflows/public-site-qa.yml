@@ -1,0 +1,43 @@
+name: Public Site QA
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'glossary.html'
+      - 'css/**'
+      - 'js/**'
+      - 'data/**'
+      - 'docs/**'
+      - 'PRIVACY.md'
+      - 'TERMS.md'
+      - 'SECURITY.md'
+      - 'DISCLAIMER.md'
+      - 'IP_POLICY.md'
+      - 'NOTICE'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'scripts/public_site_qa.py'
+      - '.github/workflows/public-site-qa.yml'
+  push:
+    branches:
+      - main
+      - business-upgrade-2026
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate public site
+        run: python scripts/public_site_qa.py
