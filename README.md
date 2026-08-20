@@ -1,6 +1,8 @@
 # MECASIMETRA
 
-Continuity-first intelligence systems, control software, and public technical infrastructure built on the κ–λ–β_c framework.
+**Mecasimetra Systems & Kappology** is the legal company identity behind the Mecasimetra and Kappology research and engineering program.
+
+The company is developing continuity-first systems research, software, technical infrastructure, and cross-domain applications spanning computing and AI, agriculture, biomedical systems, energy, infrastructure, industrial systems, and fundamental research.
 
 > Founded by **Zechariah Slaughter**  
 > Engineer, system designer, and founder of Kappology.
@@ -11,21 +13,48 @@ Continuity-first intelligence systems, control software, and public technical in
 
 ---
 
-## System Identity
+## Company and System Identity
 
-Mecasimetra is the flagship public surface for the Kappology framework: a continuity-first approach to control systems, hazard modeling, operational resilience, and technical governance.
+**Mecasimetra Systems & Kappology** is the company. **Mecasimetra** is the flagship engineering and public-facing systems brand. **Kappology** is the shared research framework used to study continuity, disturbance, regime change, sparse control, and recovery across domains.
 
-This repository presents that system as a deployable public site: part portfolio, part framework interface, part technical brand layer. It is built to be inspectable, fast to run, and easy to extend.
+The current public implementation is strongest in computing, AI, network/control experiments, mathematical modeling, and software infrastructure. Agriculture, biomedical, energy, infrastructure, and industrial systems are active expansion and research domains and should be represented as such until corresponding validated artifacts exist.
+
+## Kappology Research Principle
+
+The recurring systems hypothesis is:
+
+> Fragmentation → Drift → Waste → Sparse Control → Continuity
+
+The κ–λ family, regime-detection work, and candidate pentagonal geometry are research components within that larger program. Cross-domain use requires domain-specific measurement, calibration, testing, and validation.
 
 ## Why This Exists
 
-Most technical portfolios explain tools. Mecasimetra explains a system.
+This repository provides the flagship public surface for:
 
-This project exists to provide a serious public-facing surface for:
-- continuity-first systems thinking
-- κ–λ–β_c framework concepts
-- consulting and architecture positioning
-- a deployable flagship site for future extensions
+- Mecasimetra Systems & Kappology company identity;
+- Kappology research and terminology;
+- continuity-first systems thinking;
+- computing and AI engineering work;
+- future agriculture, biomedical, energy, infrastructure, and industrial research surfaces;
+- reproducible proof-of-work and technical documentation; and
+- a deployable public site for future extensions.
+
+## Evidence Standard
+
+Public claims should be distinguished as:
+
+1. **Defined** — precisely specified.
+2. **Implemented** — backed by working code or an artifact.
+3. **Experimentally observed** — supported by a documented reproducible experiment.
+4. **Validated** — supported by sufficiently rigorous or independent evidence.
+
+Unsupported performance, uptime, accuracy, throughput, experience, medical, regulatory, or client-result claims should not be presented as established facts.
+
+## Legal and Regulated-Domain Boundary
+
+Legal, privacy, digital-asset, network-service, biomedical, and other regulated deployments require use-case and jurisdiction-specific review. Research software and mathematical models do not themselves establish legal compliance, clinical validation, regulatory approval, or statutory safe-harbor status.
+
+See the Kappology legal/compliance documents and `BUSINESS_UPGRADE.md` for the professionalization roadmap.
 
 ## Live Surface
 
@@ -34,44 +63,26 @@ This project exists to provide a serious public-facing surface for:
 
 For local viewing, open `index.html` in a browser. No build step is required.
 
-## Core Capabilities
-
-- Public flagship site for Mecasimetra and Kappology
-- Continuity-first technical positioning and framework presentation
-- GitHub Pages deployment with custom domain support
-- Lightweight static architecture using HTML, CSS, and JavaScript
-- Interactive public surface with animations, modal flows, and contact/signup forms
-
 ## Operational Surface
 
 - `index.html` — single-page flagship site
-- `css/style.css` — dark/light theming, layout, animation, responsive behavior
-- `js/main.js` — particles, scroll reveals, navigation, theme toggle, modal behavior, forms
+- `css/style.css` — theming, layout, animation, responsive behavior
+- `js/main.js` — navigation, interaction, theme, modal behavior, forms
+- `glossary.html` and `data/` — Kappology knowledge surface
+- `BUSINESS_UPGRADE.md` — company expansion and professionalization roadmap
 - `CNAME` — custom domain configuration
 - `robots.txt` — crawler directives
 - `sitemap.xml` — sitemap for indexing
 
-## Visual Proof
-
-Visual assets should live in [`assets/`](assets/).
-
-Recommended additions:
-- homepage screenshot
-- mobile screenshot
-- architecture diagram
-- social preview / banner asset
-
-## Status
-
-Active flagship candidate.
-
 ## Roadmap
 
-- Add polished screenshots and architecture visuals
-- Tighten the public hero and premium visual hierarchy
-- Expand proof-of-work sections
-- Deepen the glossary and knowledge surface
-- Continue refining Mecasimetra as the public flagship for the broader system
+- Rebuild the public site around the full Mecasimetra Systems & Kappology company structure.
+- Remove or substantiate legacy showcase metrics.
+- Expand reproducible proof-of-work.
+- Align Kappology mathematics and software definitions.
+- Add architecture and research diagrams.
+- Introduce domain-specific research surfaces as real artifacts are developed.
+- Complete legal/compliance review before regulated or production commercial deployment.
 
 ## Contributing
 
@@ -79,4 +90,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-Apache-2.0
+Repository licensing is governed by the applicable `LICENSE` file. Company names, brands, and legal identity are separate from software-license grants.
