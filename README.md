@@ -1,106 +1,72 @@
 # MECASIMETRA
 
-**Mecasimetra Systems & Kappology** is the legal company identity behind the Mecasimetra and Kappology research and engineering program.
+**Mecasimetra Systems & Kappology** is a systems research and engineering company developing computational infrastructure, AI services, secure customer systems, and cross-domain technology.
 
-The company is developing continuity-first systems research, software, technical infrastructure, and cross-domain applications spanning computing and AI, agriculture, biomedical systems, energy, infrastructure, industrial systems, and fundamental research.
+Founded by **Zechariah Slaughter**.
 
-> Founded by **Zechariah Slaughter**  
-> Engineer, system designer, and founder of Kappology.
+## Public Product Surface
 
-[![Apache-2.0 license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Static Site](https://img.shields.io/badge/type-static%20site-lightgrey)](index.html)
-[![GitHub Pages](https://img.shields.io/badge/deploy-GitHub%20Pages-green)](https://waste1and.github.io/Mecasimetra/)
+Mecasimetra is being organized as one customer system with a small set of understandable modules:
 
----
+- **Meca ID** — minimal account identity and customer-controlled wallet linking;
+- **Meca Verify** — customer-visible measurement and attributable value reporting;
+- **Meca Prime** — managed computational optimization;
+- **Meca Continuity** — operational continuity and change monitoring;
+- **Meca Signal** — product and security notifications;
+- **Meca Edge** — bounded Mecasimetra-hosted inference where appropriate; and
+- **Meca Replay** — scenario and systems analysis.
 
-## Company and System Identity
+The public repository documents product behavior, interfaces, customer protections, security reporting, legal boundaries, and UI design. Proprietary research, algorithms, benchmarks, calibration, routing logic, model-selection logic, security intelligence, internal datasets, and implementation methods are intentionally excluded from the public surface.
 
-**Mecasimetra Systems & Kappology** is the company. **Mecasimetra** is the flagship engineering and public-facing systems brand. **Kappology** is the shared research framework used to study continuity, disturbance, regime change, sparse control, and recovery across domains.
+## Public Design Rule
 
-The current public implementation is strongest in computing, AI, network/control experiments, mathematical modeling, and software infrastructure. Agriculture, biomedical, energy, infrastructure, and industrial systems are active expansion and research domains and should be represented as such until corresponding validated artifacts exist.
+Customers should be able to understand:
 
-## Kappology Research Principle
+- what a product does;
+- what data it needs;
+- what outcome it reports;
+- what a charge represents;
+- what action requires customer approval; and
+- what evidence supports a public claim.
 
-The recurring systems hypothesis is:
-
-> Fragmentation → Drift → Waste → Sparse Control → Continuity
-
-The κ–λ family, regime-detection work, and candidate pentagonal geometry are research components within that larger program. Cross-domain use requires domain-specific measurement, calibration, testing, and validation.
-
-## Product Research
-
-### Meca Prime
-
-Meca Prime is the first defined commercial inference-efficiency product under the professionalization program. It is designed as a minimal routing layer that selects the minimum sufficient inference route, protects an explicit quality policy, measures latency and cost, and attributes qualified savings.
-
-The proposed implementation combines a low-overhead Rust gateway, a Python intelligence/evaluation layer, OpenRouter integration, and a bounded Mecasimetra-hosted model for suitable low-complexity work. Complex work escalates to capable external models rather than forcing one model to handle every request.
-
-Performance pricing is tied only to **qualified savings** that pass the applicable quality and policy gates. See [`docs/MECA_PRIME.md`](docs/MECA_PRIME.md) for the experimental product, economics, ML, privacy, and engineering specification.
-
-## Why This Exists
-
-This repository provides the flagship public surface for:
-
-- Mecasimetra Systems & Kappology company identity;
-- Kappology research and terminology;
-- continuity-first systems thinking;
-- computing and AI engineering work;
-- Meca Prime inference-efficiency product research;
-- future agriculture, biomedical, energy, infrastructure, and industrial research surfaces;
-- reproducible proof-of-work and technical documentation; and
-- a deployable public site for future extensions.
+Customers do not need access to Mecasimetra's proprietary implementation methods to receive or verify the contracted outcome.
 
 ## Evidence Standard
 
-Public claims should be distinguished as:
+Public claims are limited to evidence appropriate for disclosure. Unsupported performance, uptime, accuracy, throughput, savings, medical, regulatory, or customer-result claims must not be presented as established facts.
 
-1. **Defined** — precisely specified.
-2. **Implemented** — backed by working code or an artifact.
-3. **Experimentally observed** — supported by a documented reproducible experiment.
-4. **Validated** — supported by sufficiently rigorous or independent evidence.
+Internal research results and benchmarks are not automatically public evidence. Publication requires a deliberate disclosure decision.
 
-Unsupported performance, uptime, accuracy, throughput, experience, medical, regulatory, or client-result claims should not be presented as established facts.
+## Privacy and Security
 
-## Legal and Regulated-Domain Boundary
+The initial account model is intentionally minimal. Wallet linking is designed around customer-controlled/self-custodial authentication. Mecasimetra does not require or request wallet seed phrases or private keys through normal product flows.
 
-Legal, privacy, digital-asset, network-service, biomedical, and other regulated deployments require use-case and jurisdiction-specific review. Research software and mathematical models do not themselves establish legal compliance, clinical validation, regulatory approval, or statutory safe-harbor status.
+Customer production content is not training data by default. Product data collection should be limited to what is required to provide, secure, measure, support, and bill the selected service.
 
-See the Kappology legal/compliance documents and `BUSINESS_UPGRADE.md` for the professionalization roadmap.
+## Legal Boundary
 
-## Live Surface
+Wallet, payment, digital-asset, network, biomedical, privacy, AI, and other regulated deployments require use-case and jurisdiction-specific review. Research software and product architecture do not by themselves establish legal compliance, regulatory approval, clinical validation, or statutory exemption.
 
-**Primary domain:** [mecasimetra.com](https://mecasimetra.com)  
-**GitHub Pages fallback:** `https://waste1and.github.io/Mecasimetra/`
+## Company Domains
 
-For local viewing, open `index.html` in a browser. No build step is required.
+Current and planned work spans computing and AI, agriculture, biomedical systems, energy, infrastructure, industrial systems, and fundamental systems research. Public materials should distinguish deployed products from research and development directions.
 
-## Operational Surface
+## Public Documentation
 
-- `index.html` — single-page flagship site
-- `css/style.css` — theming, layout, animation, responsive behavior
-- `js/main.js` — navigation, interaction, theme, modal behavior, forms
-- `glossary.html` and `data/` — Kappology knowledge surface
-- `docs/MECA_PRIME.md` — Meca Prime product and economic specification
-- `BUSINESS_UPGRADE.md` — company expansion and professionalization roadmap
-- `CNAME` — custom domain configuration
-- `robots.txt` — crawler directives
-- `sitemap.xml` — sitemap for indexing
+- `docs/MECA_SYSTEM.md` — customer-facing system architecture
+- `docs/UI_SYSTEM.md` — website and product-interface specification
+- `docs/SOCIAL_LAYER.md` — minimal Meca ID/social-account model
+- `docs/PUBLIC_PRIVATE_BOUNDARY.md` — disclosure and IP-separation policy
+- `docs/OPERATIONS_GOVERNANCE.md` — operational-agent authority model
+- `docs/WEBSITE_RELEASE_PLAN.md` — final public-site implementation plan
+- `SECURITY.md` — vulnerability reporting and public security policy
 
-## Roadmap
+## IP Boundary
 
-- Build and benchmark the Meca Prime routing MVP.
-- Rebuild the public site around the full Mecasimetra Systems & Kappology company structure.
-- Remove or substantiate legacy showcase metrics.
-- Expand reproducible proof-of-work.
-- Align Kappology mathematics and software definitions.
-- Add architecture and research diagrams.
-- Introduce domain-specific research surfaces as real artifacts are developed.
-- Complete legal/compliance review before regulated or production commercial deployment.
+Do not place proprietary research methods, private benchmark results, internal formulas, optimization mechanisms, security thresholds, model-selection methods, confidential datasets, or trade-secret material in this repository.
 
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+Public Mecasimetra communicates products and outcomes. The protected implementation remains private.
 
 ## License
 
-Repository licensing is governed by the applicable `LICENSE` file. Company names, brands, and legal identity are separate from software-license grants.
+Repository licensing is governed by the applicable `LICENSE` file. Company names, brands, confidential information, trade secrets, and other intellectual-property rights are separate from software-license grants.
