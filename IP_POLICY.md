@@ -1,12 +1,11 @@
 # Intellectual Property Policy — Mecasimetra Systems & Kappology
 
-**Founder:** Zechariah Slaughter  
 **Status:** Public ownership and disclosure policy  
-**Date:** 2026-08-19
+**Date:** 2026-08-20
 
 ## 1. Ownership principle
 
-Original works authored by Zechariah Slaughter or created for Mecasimetra Systems & Kappology are owned by the applicable author or company rights holder, subject to any employment, contractor, contributor, assignment, license, or other written agreement that legally controls.
+Original works created for Mecasimetra Systems & Kappology are owned by the applicable author or company rights holder, subject to any employment, contractor, contributor, assignment, license, or other written agreement that legally controls.
 
 This policy does not claim ownership of third-party code, established mathematics, public standards, upstream software, external models, external datasets, or other material owned by others.
 
@@ -44,16 +43,7 @@ Mecasimetra Systems & Kappology claims rights, to the extent protectable under a
 
 ## 6. Contributors and contractors
 
-Substantial external work should not be incorporated into the proprietary core without a written agreement addressing at minimum:
-
-- ownership or license of contributed work;
-- pre-existing/background IP;
-- confidentiality;
-- patent rights where relevant;
-- third-party/open-source provenance; and
-- authority to make the contribution.
-
-Mecasimetra should obtain an appropriate IP-assignment or license agreement from contractors before relying on commissioned work as company-owned proprietary material.
+Substantial external work should not be incorporated into the proprietary core without a written agreement addressing ownership or license of contributed work, pre-existing/background IP, confidentiality, patent rights where relevant, third-party/open-source provenance, and authority to contribute.
 
 ## 7. Evidence and timestamps
 
@@ -61,7 +51,7 @@ Git history, dated research records, signed releases, laboratory records, and in
 
 ## 8. Patents and public disclosure
 
-Potentially patentable inventions should receive patent-strategy review before public disclosure because publication can affect patent rights, especially outside the United States.
+Potentially patentable inventions should receive patent-strategy review before public disclosure because publication can affect patent rights.
 
 ## 9. Public disclosure rule
 
