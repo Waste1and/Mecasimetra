@@ -31,13 +31,27 @@ jobs:
   qa:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+      - name: Build QA workspace from repository files
+        shell: bash
+        run: |
+          set -euo pipefail
+          REF="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+          BASE="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${REF}"
+          mkdir -p site/css site/js site/data site/docs site/scripts
+          files=(
+            index.html glossary.html css/style.css js/main.js data/terms.json
+            PRIVACY.md TERMS.md SECURITY.md DISCLAIMER.md IP_POLICY.md NOTICE
+            docs/PUBLIC_PRIVATE_BOUNDARY.md docs/OPERATIONS_GOVERNANCE.md
+            robots.txt sitemap.xml scripts/public_site_qa.py
+          )
+          for file in "${files[@]}"; do
+            mkdir -p "site/$(dirname "$file")"
+            curl --fail --silent --show-error --location "$BASE/$file" -o "site/$file"
+          done
 
       - name: Validate public site
-        run: python scripts/public_site_qa.py
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd site
+          python3 scripts/public_site_qa.py
