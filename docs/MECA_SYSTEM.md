@@ -1,199 +1,112 @@
-# Meca System — Unified Product Architecture
+# Meca System — Public Product Architecture
 
 **Company:** Mecasimetra Systems & Kappology  
-**Status:** Product architecture draft  
+**Status:** Public architecture specification  
 **Date:** 2026-08-19
 
-## System thesis
+## Purpose
 
-Mecasimetra should operate as one customer system, not a collection of disconnected AI tools.
-
-The public experience is organized around a minimal identity, measurable value, continuity, and deliberate action:
+Meca System is the unified customer surface for Mecasimetra products. Public documentation describes customer-visible behavior and controls without documenting proprietary research or implementation methods.
 
 ```text
-IDENTITY -> OBSERVE -> VERIFY -> OPTIMIZE -> NOTIFY -> ACT
+IDENTITY -> MEASURE -> OPTIMIZE -> MONITOR -> NOTIFY -> CUSTOMER ACTION
 ```
 
-Kappology provides the research language beneath continuity, drift, sparse control, regime change, and contribution. Proprietary policy, security, data, and model logic remain private.
+## Modules
 
-## Working system name
+- **Meca ID** — minimal username/account identity with optional customer-controlled wallet linking.
+- **Meca Verify** — reports measurable customer outcomes and attributable value under an agreed policy.
+- **Meca Prime** — manages computational workloads under customer-defined quality, cost, and service requirements.
+- **Meca Continuity** — reports operational state and meaningful changes relevant to the configured service.
+- **Meca Signal** — delivers product, operational, and security notifications.
+- **Meca Edge** — Mecasimetra-hosted inference for workloads where the service is appropriate and supported.
+- **Meca Replay** — scenario and systems-analysis services.
 
-**Meca System** is the umbrella product architecture.
-
-Customer-facing modules:
-
-- **Meca ID** — minimal username + self-custodial wallet-linked identity;
-- **Meca Verify** — qualified savings and impact ledger;
-- **Meca Prime** — quality-protected inference routing;
-- **Meca Continuity** — drift/continuity monitoring;
-- **Meca Signal** — AI-generated product/security notifications;
-- **Meca Edge** — bounded Mecasimetra-hosted inference;
-- **Meca Replay** — scenario and policy simulation.
-
-The modules share one account, one audit model, one notification surface, and one evidence standard.
-
-## Customer state
-
-The customer should experience the system as a single control surface rather than navigating separate products.
+## Customer control surface
 
 ```text
-Meca ID
-  |
-  +-- Verify: What value was created?
-  +-- Prime: Where should inference run?
-  +-- Continuity: Is behavior drifting?
-  +-- Signal: What changed and why?
-  +-- Wallet: What customer-authorized action is available?
-  `-- Settings: What may Mecasimetra collect/do?
+Overview
+Verify
+Prime
+Continuity
+Signal
+Wallet
+Usage
+Settings
 ```
 
-## Public/private boundary
+The customer interface should explain outcomes, charges, permissions, and required actions without exposing confidential algorithms or security logic.
 
-### Public
+## Public information
 
-- account creation and wallet-signature interface;
-- documented API schemas;
-- customer dashboard;
-- qualified-savings totals;
-- understandable route outcomes;
-- continuity/drift status;
-- notification reasons;
-- customer-controlled transaction preparation;
-- public evidence/benchmark reports.
+The public/customer surface may expose:
 
-### Private
+- account and product status;
+- customer-visible usage;
+- contractually defined cost/value measurements;
+- quality/service status;
+- understandable optimization outcomes;
+- operational notifications;
+- customer data controls;
+- wallet/session status; and
+- customer-authorized transaction preparation where supported.
 
-- model-selection features and weights;
-- evaluator prompts and confidence calibration;
-- customer-specific baselines;
-- fraud/abuse and security rules;
-- internal Kappology calibration;
-- billing-integrity logic;
-- raw security telemetry;
-- proprietary model assets;
-- private training/evaluation datasets.
+## Private information
 
-## Minimal social identity
+The following are not part of the public product specification:
 
-Meca ID is not a traditional social network profile.
+- proprietary research methods;
+- algorithms and optimization mechanisms;
+- internal formulas and benchmark results;
+- model-selection features, weights, prompts, or calibration;
+- customer-specific internal baselines beyond what a contract requires for billing transparency;
+- fraud/abuse/security detection logic;
+- confidential telemetry and datasets;
+- proprietary model assets; and
+- implementation details whose disclosure would weaken security or trade-secret protection.
 
-Initial public identity:
+## Meca ID
+
+The initial profile is intentionally small:
 
 ```text
 @username
 short description
 optional wallet display
-joined/product status
+account/product status
+notification preferences
 ```
 
-No profile photographs in v1.
-
-No follower counts, engagement scoring, behavioral ad profiles, contact imports, or public balance displays.
-
-## Value ledger
-
-Every economic claim should resolve to a private ledger event and an understandable public/customer-facing explanation.
-
-```text
-baseline
-actual
-quality gate
-qualified savings
-customer retained value
-Mecasimetra fee
-contribution allocation
-policy version
-```
-
-Corrections create adjustment events rather than rewriting history.
-
-## Signal layer
-
-Meca Signal is the notification intelligence layer.
-
-It may notify a customer that:
-
-- qualified spend changed materially;
-- routing quality degraded;
-- a provider/model regime shifted;
-- continuity/drift crossed a customer policy;
-- an API/security event occurred;
-- a budget threshold was reached; or
-- a customer-authorized action is available.
-
-Signal explains what triggered the message. It does not silently transfer assets or bypass customer approval.
+No profile photograph is required in v1. The initial system does not depend on follower counts, engagement scoring, behavioral advertising profiles, contact imports, or public balance displays.
 
 ## Wallet boundary
 
-Wallet linking proves control of a public address, not legal identity.
+Wallet linking demonstrates control of a wallet address; it does not by itself establish legal identity.
 
-The initial system is self-custodial:
+The initial design is self-custodial. Mecasimetra does not request or retain seed phrases or private keys. Customer asset-moving actions require customer review and authorization through the customer's wallet unless a separately reviewed product expressly establishes another arrangement.
 
-```text
-Meca prepares/displays action
-        |
-        v
-Customer wallet reviews
-        |
-        v
-Customer signs
-        |
-        v
-Blockchain/network executes
-```
+## Verify
 
-Mecasimetra does not request or retain seed phrases/private keys and does not launch custody, exchange, or money-transmission behavior without separate product/legal review.
+Verify should make commercial outcomes understandable and reconcilable under the applicable customer agreement. It may display eligible usage, agreed baseline information, actual service cost, quality/service status, qualified value, fees, adjustments, and customer-retained value.
 
-## Kappology surface
+The UI should expose enough information to understand a bill without exposing proprietary optimization logic.
 
-Kappology appears progressively through product outcomes:
+## Prime
 
-- `κ` / continuity: persistence of required quality/service across changes;
-- `λ` / normalized hazard: calibrated disturbance pressure;
-- drift: meaningful movement away from baseline;
-- regime: structural change requiring policy reconsideration;
-- sparse control: use expensive/strong intervention only where justified;
-- contribution: attributable economic or operational effect.
+Prime should show customer-relevant outcomes such as service status, selected service class, quality status, cost impact, and latency where appropriate. It must not expose confidential decision weights or internal reasoning traces.
 
-Avoid universal thresholds across unrelated domains.
+## Continuity
 
-## Evidence states
+Continuity should present understandable operational state, trends, alerts, and policy-relevant changes. Internal detection methods remain proprietary.
 
-Every metric/claim carries one internal state:
+## Signal
 
-```text
-DEFINED -> IMPLEMENTED -> OBSERVED -> VALIDATED
-```
+Signal may deliver notifications about service state, cost/value changes, security events, customer-configured thresholds, and actions requiring attention. Notifications do not themselves authorize asset transfers.
 
-The UI may expose the state for research/system claims so customers can distinguish product capability from ongoing research.
+## Evidence rule
 
-## Revenue architecture
+Public claims must be supported at the level implied by the wording. Internal experiments and confidential benchmarks remain internal unless an explicit disclosure decision is made.
 
-The system supports several charging surfaces:
+## Commercial rule
 
-- performance fee on qualified savings;
-- fixed subscription for Verify/Continuity infrastructure;
-- event/inference metering;
-- Meca Edge hosted inference;
-- Replay/audit engagements;
-- enterprise/private deployment;
-- security/continuity reporting.
-
-Pricing must not create an incentive to degrade quality, inflate baselines, hide markup, or generate unnecessary traffic.
-
-## Product moat
-
-The moat is not simply API routing.
-
-It is the combined system of:
-
-```text
-minimal identity
-+ auditable economic attribution
-+ continuity-aware optimization
-+ proprietary policy/security plane
-+ customer-visible explanations
-+ bounded owned inference
-```
-
-That combination is the unique system to test and refine.
+Pricing must not depend on degrading customer quality, manufacturing unnecessary usage, hiding markup, or using an inflated baseline. Production pricing and billing definitions belong in the customer agreement.
