@@ -1,4 +1,4 @@
-# Mecasimetra Social Layer
+# Meca ID — Minimal Account & Social Layer
 
 **Company:** Mecasimetra Systems & Kappology  
 **Status:** Product architecture draft  
@@ -6,115 +6,63 @@
 
 ## Purpose
 
-The Mecasimetra social layer gives customers a minimal identity inside the product without turning the platform into a traditional social network.
+Meca ID gives customers a minimal identity inside Mecasimetra without reproducing the data collection and engagement mechanics of a conventional social network.
 
-The account surface is intentionally sparse:
+Initial account surface:
 
 ```text
 username
 short description
-wallet link
+optional wallet link/display
 account/product status
 notification preferences
 ```
 
 Profile pictures are not part of the initial design.
 
-## Design principle
-
-The social layer exists to connect identity, product usage, verified value, notifications, and customer-controlled wallet actions with the least necessary personal data.
-
-It is not designed around follower counts, behavioral advertising, engagement maximization, or demographic profiling.
-
 ## Account creation
 
-Initial wallet-linked authentication should use a self-custodial signature challenge rather than passwords when supported:
+Where wallet authentication is supported, the intended pattern is a customer-controlled signature challenge. Mecasimetra must never request or store a customer's wallet seed phrase or private key.
 
-1. user selects a compatible wallet;
-2. Mecasimetra issues a short-lived challenge;
-3. user approves/signs the challenge in their wallet;
-4. Mecasimetra verifies the signature;
-5. the account is associated with the public wallet identifier;
-6. Mecasimetra issues an authenticated session.
-
-Mecasimetra must never ask for or store a customer's wallet seed phrase or private key.
+Wallet control is not represented as government-verified legal identity.
 
 ## Public profile
 
-Initial public profile fields:
+A customer may choose to display:
 
-- `username` — unique product identity;
-- `description` — short optional account description;
-- `wallet_display` — optional wallet/public-address display chosen by the user;
-- `joined_at` — optional public account age/date; and
-- `product_badges` — evidence-backed product status such as Verify enabled or Prime test participant.
+- username;
+- short description;
+- optional public wallet identifier;
+- optional join/product status.
 
-Do not expose private usage, savings, provider choices, balances, billing, API metadata, or security events publicly by default.
+Private usage, savings, provider choices, balances, billing data, API metadata, security events, and internal product decisions are not public by default.
 
-## Customer value surface
+## Customer dashboard
 
-Each account may receive a private dashboard showing:
+Authenticated customers may see product status, usage, contractually defined value/cost information, service/quality state, notifications, and data controls.
 
-- qualified AI savings;
-- customer-retained value;
-- Mecasimetra contribution/fee;
-- contribution-pool allocation;
-- model/route distribution;
-- quality-policy pass rate;
-- latency/continuity summaries; and
-- product notifications.
+The dashboard must not expose proprietary Mecasimetra implementation methods.
 
-The goal is to show Mecasimetra's measurable contribution without exposing proprietary routing logic.
+## Wallet boundary
 
-## Wallet and value movement boundary
-
-The first social release is designed around **self-custody**.
-
-Mecasimetra may prepare or display customer-selected transaction information or invoke a wallet interface, but the customer must review and sign any asset-moving transaction through their own wallet unless and until a separately reviewed regulated/custodial product is launched.
-
-The public social layer must not store private keys or seed phrases and should not represent wallet-linked identity as equivalent to a legally verified identity.
+The initial design is self-custodial. Where a customer chooses an asset-moving action, the customer reviews and authorizes it through the customer's wallet unless a separately reviewed product explicitly establishes another arrangement.
 
 ## Notifications
 
-The Mecasimetra AI notification layer may surface events such as:
+Meca Signal may surface service events, security notices, customer-configured thresholds, and product/value changes. Notifications should identify the relevant event or policy without exposing secrets or confidential internal logic.
 
-- unusual inference-cost movement;
-- quality-policy failures;
-- continuity/drift alerts;
-- verified savings milestones;
-- API-key or security events;
-- product/service notices; and
-- customer-configured budget thresholds.
-
-Notifications must be explainable enough to identify the triggering event or policy. They should not silently execute financial actions.
+Notifications do not themselves authorize financial transactions.
 
 ## Minimal-data commitment
 
-The basic account should not require:
+The basic account does not require a profile image, legal name, phone number, home address, precise location, contact-list access, demographic profile, or imported social graph merely to exist.
 
-- a profile image;
-- legal name;
-- phone number;
-- home address;
-- precise location;
-- contact-list access;
-- demographic attributes; or
-- social graph imports.
-
-Additional information may be required later for a specific regulated or contractual product, but it should not be collected merely for the basic account.
+Additional information may be required for a particular regulated or contractual service, but that requirement must be specific to that service.
 
 ## Moderation and abuse
 
-Even a minimal username/description system needs controls for impersonation, unlawful content, harassment, malicious links, spam, and abuse. Account descriptions should have strict length and content rules and should not accept active HTML/script content.
+Public text fields require controls for impersonation, unlawful content, harassment, malicious links, spam, and abuse. Descriptions should be length-limited and must not execute active HTML/script content.
 
-## Relationship to Kappology
+## Privacy rule
 
-Kappology appears through product measurements rather than ideology:
-
-- continuity of service and quality;
-- drift notifications;
-- sparse escalation/control;
-- regime-change alerts; and
-- measurable contribution.
-
-The social layer is a customer surface; proprietary Kappology calibration, security logic, and routing intelligence remain private.
+Collect only what is necessary to provide, secure, measure, support, and bill the selected service. Customer production content is not model-training data by default.
