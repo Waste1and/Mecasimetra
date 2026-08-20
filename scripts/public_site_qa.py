@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parents[1]
 HTML_FILES=[ROOT/'index.html',ROOT/'glossary.html',ROOT/'customer.html']
-REQUIRED_FILES=[ROOT/'PRIVACY.md',ROOT/'TERMS.md',ROOT/'SECURITY.md',ROOT/'DISCLAIMER.md',ROOT/'IP_POLICY.md',ROOT/'NOTICE',ROOT/'docs'/'PUBLIC_PRIVATE_BOUNDARY.md',ROOT/'docs'/'OPERATIONS_GOVERNANCE.md',ROOT/'docs'/'BUSINESS_SERVICES_AND_PRICING.md',ROOT/'docs'/'MEASUREMENT_AND_TREASURY_MODEL.md',ROOT/'docs'/'VERIFIED_BUSINESS_NETWORK.md']
+REQUIRED_FILES=[ROOT/'PRIVACY.md',ROOT/'TERMS.md',ROOT/'SECURITY.md',ROOT/'DISCLAIMER.md',ROOT/'IP_POLICY.md',ROOT/'NOTICE',ROOT/'docs'/'PUBLIC_PRIVATE_BOUNDARY.md',ROOT/'docs'/'OPERATIONS_GOVERNANCE.md',ROOT/'docs'/'BUSINESS_SERVICES_AND_PRICING.md',ROOT/'docs'/'MEASUREMENT_AND_TREASURY_MODEL.md',ROOT/'docs'/'VERIFIED_BUSINESS_NETWORK.md',ROOT/'docs'/'ACCESS_AND_PRIVILEGE_MODEL.md']
 class LinkParser(HTMLParser):
  def __init__(self): super().__init__(); self.links=[]; self.ids=set()
  def handle_starttag(self,tag,attrs):
@@ -44,9 +44,12 @@ def main():
  if 'pine-logo' not in customer or 'Verified business' not in customer:failures.append('customer.html: magenta pine verified identity missing')
  for marker in ['Business discovery','Team controls','Export & reporting','Pricing & promotion']:
   if marker not in customer:failures.append(f'customer.html: missing business feature {marker}')
+ access=(ROOT/'docs'/'ACCESS_AND_PRIVILEGE_MODEL.md').read_text(encoding='utf-8') if (ROOT/'docs'/'ACCESS_AND_PRIVILEGE_MODEL.md').exists() else ''
+ for marker in ['BASIC USE','PRIVILEGED USE','Default-deny rule','Treasury Approver']:
+  if marker not in access:failures.append(f'access model: missing control {marker}')
  for f in [ROOT/'robots.txt',ROOT/'sitemap.xml']:
   if not f.exists():failures.append(f'missing {f.name}')
  if failures:
   print('PUBLIC SITE QA FAILED'); [print('-',x) for x in failures]; return 1
- print('PUBLIC SITE QA PASSED'); print('Checked public pages, commercial docs, pine verification, business benefits, 100-character share-only posts, glossary JSON, robots and sitemap.'); return 0
+ print('PUBLIC SITE QA PASSED'); print('Checked pages, commercial docs, pine verification, business benefits, basic/privileged access controls, share-only posts, glossary JSON, robots and sitemap.'); return 0
 if __name__=='__main__':sys.exit(main())
