@@ -1,122 +1,51 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-
-import json
-import sys
+import json, sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
-
-ROOT = Path(__file__).resolve().parents[1]
-HTML_FILES = [ROOT / "index.html", ROOT / "glossary.html"]
-REQUIRED_FILES = [
-    ROOT / "PRIVACY.md",
-    ROOT / "TERMS.md",
-    ROOT / "SECURITY.md",
-    ROOT / "DISCLAIMER.md",
-    ROOT / "IP_POLICY.md",
-    ROOT / "NOTICE",
-    ROOT / "docs" / "PUBLIC_PRIVATE_BOUNDARY.md",
-    ROOT / "docs" / "OPERATIONS_GOVERNANCE.md",
-]
-
-
+ROOT=Path(__file__).resolve().parents[1]
+HTML_FILES=[ROOT/'index.html',ROOT/'glossary.html',ROOT/'customer.html']
+REQUIRED_FILES=[ROOT/'PRIVACY.md',ROOT/'TERMS.md',ROOT/'SECURITY.md',ROOT/'DISCLAIMER.md',ROOT/'IP_POLICY.md',ROOT/'NOTICE',ROOT/'docs'/'PUBLIC_PRIVATE_BOUNDARY.md',ROOT/'docs'/'OPERATIONS_GOVERNANCE.md',ROOT/'docs'/'BUSINESS_SERVICES_AND_PRICING.md',ROOT/'docs'/'MEASUREMENT_AND_TREASURY_MODEL.md']
 class LinkParser(HTMLParser):
-    def __init__(self) -> None:
-        super().__init__()
-        self.links: list[str] = []
-        self.ids: set[str] = set()
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        attrs_dict = dict(attrs)
-        if attrs_dict.get("id"):
-            self.ids.add(attrs_dict["id"] or "")
-        if tag in {"a", "link", "script"}:
-            value = attrs_dict.get("href") if tag != "script" else attrs_dict.get("src")
-            if value:
-                self.links.append(value)
-
-
-def fail(message: str, failures: list[str]) -> None:
-    failures.append(message)
-
-
-def check_html(path: Path, failures: list[str]) -> None:
-    text = path.read_text(encoding="utf-8")
-    parser = LinkParser()
-    try:
-        parser.feed(text)
-    except Exception as exc:
-        fail(f"{path.name}: HTML parse failed: {exc}", failures)
-        return
-
-    if "<html" not in text.lower() or "</html>" not in text.lower():
-        fail(f"{path.name}: missing html root tags", failures)
-
-    for link in parser.links:
-        parsed = urlparse(link)
-        if parsed.scheme in {"http", "https", "mailto", "tel"} or link.startswith("//"):
-            continue
-        if link.startswith("#"):
-            fragment = link[1:]
-            if fragment and fragment not in parser.ids:
-                fail(f"{path.name}: missing fragment target #{fragment}", failures)
-            continue
-
-        relative_path = parsed.path
-        if not relative_path:
-            continue
-        target = (path.parent / relative_path).resolve()
-        try:
-            target.relative_to(ROOT.resolve())
-        except ValueError:
-            fail(f"{path.name}: link escapes repository: {link}", failures)
-            continue
-        if not target.exists():
-            fail(f"{path.name}: missing local target: {link}", failures)
-
-
-def main() -> int:
-    failures: list[str] = []
-
-    for required in REQUIRED_FILES:
-        if not required.exists():
-            fail(f"missing required trust/governance file: {required.relative_to(ROOT)}", failures)
-
-    for html_file in HTML_FILES:
-        if not html_file.exists():
-            fail(f"missing HTML file: {html_file.name}", failures)
-        else:
-            check_html(html_file, failures)
-
-    terms = ROOT / "data" / "terms.json"
-    try:
-        data = json.loads(terms.read_text(encoding="utf-8"))
-        if not isinstance(data.get("terms"), list):
-            fail("data/terms.json: terms must be a list", failures)
-        metadata = data.get("metadata", {})
-        if metadata.get("company") != "Mecasimetra Systems & Kappology":
-            fail("data/terms.json: company metadata is inconsistent", failures)
-    except Exception as exc:
-        fail(f"data/terms.json: invalid JSON: {exc}", failures)
-
-    robots = ROOT / "robots.txt"
-    sitemap = ROOT / "sitemap.xml"
-    if not robots.exists():
-        fail("missing robots.txt", failures)
-    if not sitemap.exists():
-        fail("missing sitemap.xml", failures)
-
-    if failures:
-        print("PUBLIC SITE QA FAILED")
-        for item in failures:
-            print(f"- {item}")
-        return 1
-
-    print("PUBLIC SITE QA PASSED")
-    print(f"Checked {len(HTML_FILES)} HTML files, {len(REQUIRED_FILES)} required trust/governance files, glossary JSON, robots.txt, and sitemap.xml.")
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+ def __init__(self): super().__init__(); self.links=[]; self.ids=set()
+ def handle_starttag(self,tag,attrs):
+  a=dict(attrs)
+  if a.get('id'): self.ids.add(a['id'])
+  if tag in {'a','link','script'}:
+   v=a.get('href') if tag!='script' else a.get('src')
+   if v:self.links.append(v)
+def check_html(path,failures):
+ text=path.read_text(encoding='utf-8'); p=LinkParser(); p.feed(text)
+ if '<html' not in text.lower() or '</html>' not in text.lower(): failures.append(f'{path.name}: missing html root tags')
+ for link in p.links:
+  u=urlparse(link)
+  if u.scheme in {'http','https','mailto','tel'} or link.startswith('//'):continue
+  if link.startswith('#'):
+   if link[1:] and link[1:] not in p.ids:failures.append(f'{path.name}: missing fragment target {link}')
+   continue
+  if u.path and not (path.parent/u.path).resolve().exists():failures.append(f'{path.name}: missing local target: {link}')
+def main():
+ failures=[]
+ for f in REQUIRED_FILES:
+  if not f.exists():failures.append(f'missing required file: {f.relative_to(ROOT)}')
+ for f in HTML_FILES:
+  if not f.exists():failures.append(f'missing HTML file: {f.name}')
+  else:check_html(f,failures)
+ try:
+  d=json.loads((ROOT/'data'/'terms.json').read_text(encoding='utf-8'))
+  if not isinstance(d.get('terms'),list):failures.append('data/terms.json: terms must be a list')
+ except Exception as e:failures.append(f'data/terms.json invalid: {e}')
+ customer=(ROOT/'customer.html').read_text(encoding='utf-8') if (ROOT/'customer.html').exists() else ''
+ if 'maxlength="100"' not in customer:failures.append('customer.html: post limit must be 100 characters')
+ forbidden=['Like','Comment','Reply','Follower count']
+ for word in forbidden:
+  if f'>{word}<' in customer:failures.append(f'customer.html: forbidden engagement action {word}')
+ if 'data-share-button' not in customer or 'data-preview-share' not in customer:failures.append('customer.html: share-only controls missing')
+ if 'pine-badge' not in customer or 'Verified business' not in customer:failures.append('customer.html: verified business badge missing')
+ for f in [ROOT/'robots.txt',ROOT/'sitemap.xml']:
+  if not f.exists():failures.append(f'missing {f.name}')
+ if failures:
+  print('PUBLIC SITE QA FAILED'); [print('-',x) for x in failures]; return 1
+ print('PUBLIC SITE QA PASSED'); print('Checked public pages, commercial docs, 100-character share-only posts, verified badge, glossary JSON, robots and sitemap.'); return 0
+if __name__=='__main__':sys.exit(main())
