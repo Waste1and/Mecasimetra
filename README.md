@@ -1,82 +1,72 @@
 # MECASIMETRA
 
-Continuity-first intelligence systems, control software, and public technical infrastructure built on the κ–λ–β_c framework.
+**Mecasimetra Systems & Kappology** is a systems research and engineering company developing computational infrastructure, AI services, secure customer systems, and cross-domain technology.
 
-> Founded by **Zechariah Slaughter**  
-> Engineer, system designer, and founder of Kappology.
+Founded by **Zechariah Slaughter**.
 
-[![Apache-2.0 license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Static Site](https://img.shields.io/badge/type-static%20site-lightgrey)](index.html)
-[![GitHub Pages](https://img.shields.io/badge/deploy-GitHub%20Pages-green)](https://waste1and.github.io/Mecasimetra/)
+## Public Product Surface
 
----
+Mecasimetra is being organized as one customer system with a small set of understandable modules:
 
-## System Identity
+- **Meca ID** — minimal account identity and customer-controlled wallet linking;
+- **Meca Verify** — customer-visible measurement and attributable value reporting;
+- **Meca Prime** — managed computational optimization;
+- **Meca Continuity** — operational continuity and change monitoring;
+- **Meca Signal** — product and security notifications;
+- **Meca Edge** — bounded Mecasimetra-hosted inference where appropriate; and
+- **Meca Replay** — scenario and systems analysis.
 
-Mecasimetra is the flagship public surface for the Kappology framework: a continuity-first approach to control systems, hazard modeling, operational resilience, and technical governance.
+The public repository documents product behavior, interfaces, customer protections, security reporting, legal boundaries, and UI design. Proprietary research, algorithms, benchmarks, calibration, routing logic, model-selection logic, security intelligence, internal datasets, and implementation methods are intentionally excluded from the public surface.
 
-This repository presents that system as a deployable public site: part portfolio, part framework interface, part technical brand layer. It is built to be inspectable, fast to run, and easy to extend.
+## Public Design Rule
 
-## Why This Exists
+Customers should be able to understand:
 
-Most technical portfolios explain tools. Mecasimetra explains a system.
+- what a product does;
+- what data it needs;
+- what outcome it reports;
+- what a charge represents;
+- what action requires customer approval; and
+- what evidence supports a public claim.
 
-This project exists to provide a serious public-facing surface for:
-- continuity-first systems thinking
-- κ–λ–β_c framework concepts
-- consulting and architecture positioning
-- a deployable flagship site for future extensions
+Customers do not need access to Mecasimetra's proprietary implementation methods to receive or verify the contracted outcome.
 
-## Live Surface
+## Evidence Standard
 
-**Primary domain:** [mecasimetra.com](https://mecasimetra.com)  
-**GitHub Pages fallback:** `https://waste1and.github.io/Mecasimetra/`
+Public claims are limited to evidence appropriate for disclosure. Unsupported performance, uptime, accuracy, throughput, savings, medical, regulatory, or customer-result claims must not be presented as established facts.
 
-For local viewing, open `index.html` in a browser. No build step is required.
+Internal research results and benchmarks are not automatically public evidence. Publication requires a deliberate disclosure decision.
 
-## Core Capabilities
+## Privacy and Security
 
-- Public flagship site for Mecasimetra and Kappology
-- Continuity-first technical positioning and framework presentation
-- GitHub Pages deployment with custom domain support
-- Lightweight static architecture using HTML, CSS, and JavaScript
-- Interactive public surface with animations, modal flows, and contact/signup forms
+The initial account model is intentionally minimal. Wallet linking is designed around customer-controlled/self-custodial authentication. Mecasimetra does not require or request wallet seed phrases or private keys through normal product flows.
 
-## Operational Surface
+Customer production content is not training data by default. Product data collection should be limited to what is required to provide, secure, measure, support, and bill the selected service.
 
-- `index.html` — single-page flagship site
-- `css/style.css` — dark/light theming, layout, animation, responsive behavior
-- `js/main.js` — particles, scroll reveals, navigation, theme toggle, modal behavior, forms
-- `CNAME` — custom domain configuration
-- `robots.txt` — crawler directives
-- `sitemap.xml` — sitemap for indexing
+## Legal Boundary
 
-## Visual Proof
+Wallet, payment, digital-asset, network, biomedical, privacy, AI, and other regulated deployments require use-case and jurisdiction-specific review. Research software and product architecture do not by themselves establish legal compliance, regulatory approval, clinical validation, or statutory exemption.
 
-Visual assets should live in [`assets/`](assets/).
+## Company Domains
 
-Recommended additions:
-- homepage screenshot
-- mobile screenshot
-- architecture diagram
-- social preview / banner asset
+Current and planned work spans computing and AI, agriculture, biomedical systems, energy, infrastructure, industrial systems, and fundamental systems research. Public materials should distinguish deployed products from research and development directions.
 
-## Status
+## Public Documentation
 
-Active flagship candidate.
+- `docs/MECA_SYSTEM.md` — customer-facing system architecture
+- `docs/UI_SYSTEM.md` — website and product-interface specification
+- `docs/SOCIAL_LAYER.md` — minimal Meca ID/social-account model
+- `docs/PUBLIC_PRIVATE_BOUNDARY.md` — disclosure and IP-separation policy
+- `docs/OPERATIONS_GOVERNANCE.md` — operational-agent authority model
+- `docs/WEBSITE_RELEASE_PLAN.md` — final public-site implementation plan
+- `SECURITY.md` — vulnerability reporting and public security policy
 
-## Roadmap
+## IP Boundary
 
-- Add polished screenshots and architecture visuals
-- Tighten the public hero and premium visual hierarchy
-- Expand proof-of-work sections
-- Deepen the glossary and knowledge surface
-- Continue refining Mecasimetra as the public flagship for the broader system
+Do not place proprietary research methods, private benchmark results, internal formulas, optimization mechanisms, security thresholds, model-selection methods, confidential datasets, or trade-secret material in this repository.
 
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+Public Mecasimetra communicates products and outcomes. The protected implementation remains private.
 
 ## License
 
-Apache-2.0
+Repository licensing is governed by the applicable `LICENSE` file. Company names, brands, confidential information, trade secrets, and other intellectual-property rights are separate from software-license grants.

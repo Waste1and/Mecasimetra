@@ -1,72 +1,37 @@
-# Contributing to the Kappology Knowledge Graph
+# Contributing to Mecasimetra
 
-Thank you for your interest in extending the Mecasimetra / Kappology glossary. The knowledge graph is designed to grow with the community while maintaining formal rigour.
+**Company:** Mecasimetra Systems & Kappology
 
-## How to add or update a term
+## Current contribution policy
 
-All terms live in [`data/terms.json`](data/terms.json). Each term follows a strict schema — contributions that do not match the schema will not be merged.
+Mecasimetra is currently professionalizing its public product surface while keeping proprietary research and implementation in private repositories.
 
-### Term schema
+For that reason, this public repository is **not currently accepting unsolicited contributions that contain new Kappology research, algorithms, formulas, optimization methods, benchmark methods/results, model-selection logic, security logic, proprietary datasets, or other material intended to become part of the private core**.
 
-```json
-{
-  "id": "your-term-id",
-  "symbol": "X",
-  "label": "Human-Readable Term Name",
-  "short": "One-sentence summary (displayed in the term list).",
-  "definition": "Full paragraph-length definition. Be precise and formal.",
-  "parents": ["parent-term-id"],
-  "related": ["related-term-id"],
-  "formula": "Optional formula string, or null",
-  "category": "one-of-the-categories-below"
-}
-```
+Do not submit confidential information, trade secrets, customer data, private keys, seed phrases, credentials, unpublished Mecasimetra research, or third-party material you are not authorized to contribute.
 
-### Field rules
+## Public-site contributions
 
-| Field        | Rules |
-|-------------|-------|
-| `id`        | Lowercase, hyphen-separated, unique. e.g. `hazard-rate` |
-| `symbol`    | Unicode symbol or short abbreviation. e.g. `λ`, `β_c` |
-| `label`     | Full display name. May include `—` for subheadings. |
-| `short`     | One sentence, under 120 characters. No trailing period is fine. |
-| `definition`| One or more paragraphs. Formal and precise. |
-| `parents`   | Array of existing term IDs that this term is derived from. Empty array `[]` for root concepts. |
-| `related`   | Array of term IDs for associated (non-ancestor) concepts. |
-| `formula`   | LaTeX-style or plain text formula string, or `null`. |
-| `category`  | See categories below. |
+Small public-facing fixes such as accessibility corrections, typographical fixes, broken-link fixes, or standards-compliant documentation improvements may be considered.
 
-### Categories
+Submitting a pull request does **not** transfer ownership of your pre-existing intellectual property to Mecasimetra Systems & Kappology. If a contribution is accepted into Apache-2.0-covered public work, it is licensed under the applicable repository license unless a separate written contributor agreement states otherwise.
 
-| Value         | Meaning |
-|---------------|---------|
-| `foundation`  | Root/foundational concepts (e.g., Continuity) |
-| `measurement` | Measurable quantities (e.g., Hazard Rate) |
-| `core-metric` | Primary computed metrics (e.g., κ) |
-| `governance`  | Rules, thresholds, and control decisions |
-| `discipline`  | Overarching bodies of study |
+## Company-owned and proprietary material
 
-## Contribution process
+Mecasimetra Systems & Kappology reserves all rights in its confidential and proprietary material, including unpublished research, internal algorithms, private benchmarks, internal models and model assets, calibration, security methods, customer-specific logic, private datasets, trade secrets, and other non-public work.
 
-1. **Fork** this repository
-2. **Edit** `data/terms.json` — add your term following the schema exactly
-3. **Validate** your JSON: `cat data/terms.json | python3 -m json.tool` (or use an online JSON validator)
-4. **Open a Pull Request** with:
-   - A clear title: `glossary: add term "<Your Term Label>"`
-   - A brief justification for why this term belongs in the kappology framework
-5. A maintainer will review for correctness, formal rigour, and schema compliance
+A public issue, discussion, suggestion, or pull request must not be interpreted as permission to disclose private Mecasimetra material.
 
-## What makes a good term contribution?
+## Third-party provenance
 
-- It fits within the κ–λ–β_c theoretical framework or its direct extensions
-- The definition is precise and references parent concepts where appropriate
-- The formula (if applicable) is correct and uses standard notation
-- It does not duplicate an existing term
+Contributors must identify applicable third-party code, data, models, documentation, or other material and comply with its license and attribution requirements. Mecasimetra does not claim ownership of third-party or upstream work merely because it appears in a repository.
 
-## Questions?
+## Future contributor agreements
 
-Open a [GitHub Discussion](https://github.com/Waste1and/Mecasimetra/discussions) or reach out via the contact form on the website.
+Before accepting substantial external code, research, or product contributions, Mecasimetra may require a separate Contributor License Agreement, copyright assignment, provenance certification, or other written agreement appropriate to the contribution.
 
----
+Until such a process is published, maintainers may decline substantial external contributions to avoid ambiguity over ownership, licensing, confidentiality, or patent rights.
 
-*All contributions are subject to the [Apache-2.0 license](LICENSE). By submitting a pull request you agree that your contribution will be licensed under Apache-2.0.*
+## Questions
+
+Use public GitHub discussions only for information appropriate for public disclosure. Do not place private IP or security-sensitive information in public discussions.
