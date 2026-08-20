@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mecasimetra customer savings and verified business sharing preview." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Customer — Mecasimetra Systems & Kappology</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="index.html"><span class="brand-mark">M</span><span class="brand-copy"><strong>Mecasimetra</strong><small>Customer control</small></span></a>
+      <a class="nav-action" href="index.html">Public site</a>
+    </div>
+  </header>
+  <main>
+    <section class="section customer-section">
+      <div class="shell customer-layout">
+        <div>
+          <div class="verified-business-card">
+            <div class="pine-badge" aria-label="Verified business"><span aria-hidden="true">▲</span><i>✓</i></div>
+            <div><p class="eyebrow">Verified business</p><h1 class="customer-title">Your business</h1><p class="customer-muted">Verification is issued by Mecasimetra and may be revoked if eligibility changes.</p></div>
+          </div>
+          <section class="customer-panel" aria-labelledby="savings-heading">
+            <div class="customer-panel-head"><div><p class="eyebrow">Meca Verify</p><h2 id="savings-heading">Your savings</h2></div><span class="private-label">Private</span></div>
+            <div class="customer-stats">
+              <article><small>Qualified savings</small><strong data-stat="savings">—</strong><span>vs. verified baseline</span></article>
+              <article><small>Customer retained</small><strong data-stat="retained">—</strong><span>after Meca fee</span></article>
+              <article><small>Latency</small><strong data-stat="latency">—</strong><span>verified improvement</span></article>
+            </div>
+            <p class="measurement-note">Only customer-facing, qualified measurements are shown here. Internal routing, formulas, provider logic, treasury data, and proprietary Kappology methods remain private.</p>
+          </section>
+        </div>
+        <aside>
+          <section class="customer-panel share-panel" aria-labelledby="share-heading">
+            <div class="customer-panel-head"><div><p class="eyebrow">Business post</p><h2 id="share-heading">Share a result</h2></div><span class="pine-mini" aria-label="Verified">▲ ✓</span></div>
+            <label class="post-label" for="business-post">100 characters maximum</label>
+            <textarea id="business-post" maxlength="100" rows="5" placeholder="Share a short business update." data-post-input></textarea>
+            <div class="post-actions"><span data-post-count>0 / 100</span><button class="button button-primary" type="button" data-share-button disabled>Share</button></div>
+            <p class="measurement-note">Posts have one action only: Share. No likes, comments, replies, follower counts, or engagement scores.</p>
+          </section>
+          <section class="customer-panel post-preview" aria-live="polite">
+            <div class="post-author"><span class="pine-mini">▲ ✓</span><div><strong>Verified business</strong><small>Mecasimetra verified</small></div></div>
+            <p data-post-preview>Your 100-character business post will preview here.</p>
+            <button class="share-only" type="button" data-preview-share disabled>Share</button>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
