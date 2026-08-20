@@ -6,53 +6,38 @@
 
 ## Design objective
 
-The interface should feel like a scientific/industrial control product, not a freelancer portfolio, crypto landing page, or generic AI dashboard.
-
-Core visual qualities:
+The interface should feel like a scientific/industrial control product rather than a founder portfolio, generic AI dashboard, or crypto landing page.
 
 ```text
 monochrome base
 + precise typography
 + restrained signal color
-+ clear evidence states
-+ measurable value
++ measurable customer outcomes
 + low visual noise
++ strong trust surfaces
 ```
 
-## Current UI flaws
+## Core rule
 
-The existing site has a usable dark-tech foundation but several structural problems:
+The UI shows customer state, outcomes, permissions, and actions. It does not expose proprietary research, formulas, benchmarks, routing methods, internal model logic, calibration, security thresholds, or confidential datasets.
 
-1. The hero is dominated by an animated orb and unverified statistics rather than a product/customer outcome.
-2. The site reads as founder/skills/services first, not product/system first.
-3. Generic technology-logo/tag lists dilute the unique Kappology/Mecasimetra story.
-4. Strong magenta/cyan glows, particles, floating cards, terminal decoration, and repeated animations create visual competition.
-5. Research values such as κ, λ, and β are shown as universal operational facts instead of evidence-scoped measurements.
-6. The product/account journey is absent.
-7. Mobile removes the main visual identity rather than simplifying it.
-8. Founder styles are currently placed inside a mobile media block in the stylesheet and must be corrected.
-9. Public calls to action are mostly “services/contact/get access” rather than “connect system / see verified impact / create account.”
-10. Public claims and product state are not visually distinguished as defined, implemented, observed, or validated.
-
-## New information architecture
-
-### Public landing page
+## Public information architecture
 
 ```text
-NAV
-MECASIMETRA SYSTEMS & KAPPOLOGY
-Product value statement
-System map
-Meca Verify / Prime / Continuity / Signal
-Evidence-backed work
-Kappology research layer
-Company domains
+Company
+Meca System
+Products
+Customer Control
+Company Domains
+Kappology
 Founder
-Legal / privacy / security
-Sign in / Create Meca ID
+Security / Privacy / Terms
+Enter System
 ```
 
-### Authenticated control surface
+Kappology is identified publicly as the company's research field without exposing confidential methods.
+
+## Authenticated information architecture
 
 ```text
 Overview
@@ -67,92 +52,28 @@ Settings
 
 ## Hero
 
-The first screen should answer three questions immediately:
-
-- What is Mecasimetra?
-- What measurable result does it produce?
-- What can a customer do next?
-
-Recommended structure:
+Recommended direction:
 
 ```text
 MECASIMETRA SYSTEMS & KAPPOLOGY
-Measure value. Preserve capability.
+Computational systems for measurable outcomes.
 
-AI/system optimization with auditable savings,
-continuity-aware routing, and minimal-data control.
-
-[Create Meca ID] [View System]
+[Enter System] [View Products]
 ```
 
-No unverified counters in the hero.
+No unverified counters, benchmark numbers, private research claims, or universal scientific constants in the hero.
 
-## System visual
+## Visual system
 
-Replace the decorative orb with a simple live/system diagram:
+Use near-black/graphite surfaces, off-white primary type, neutral secondary text, thin structural borders, and a restrained semantic accent. Avoid broad neon glow, excessive particles, generic AI artwork, and decorative crypto imagery.
 
-```text
-INPUT
-  |
-  v
-VERIFY --> PRIME --> MODEL/PROVIDER
-  |          |
-  |          v
-  +---- CONTINUITY
-            |
-            v
-          SIGNAL
-```
-
-Use motion only to indicate actual flow/state, and respect `prefers-reduced-motion`.
-
-## Color
-
-Use a near-monochrome base:
-
-- black/near-black backgrounds;
-- off-white primary type;
-- neutral grays for secondary text and borders.
-
-Signal colors should be semantic rather than decorative:
-
-- one primary accent for Mecasimetra/Kappology identity;
-- secondary accent only for comparison/route state;
-- warning/error colors only for real warnings/errors.
-
-Avoid broad neon glow on every card/button.
+Motion should indicate actual UI state or flow and respect `prefers-reduced-motion`.
 
 ## Typography
 
-- sans-serif for product/business reading;
-- mono only for metrics, IDs, formulas, policy versions, code, and research notation;
-- larger body text and shorter line lengths for research/legal content;
-- avoid overusing uppercase/letter spacing.
+Use readable sans-serif typography for product/business content. Use monospace selectively for IDs, measurements, policy versions, code, and machine state.
 
-## Cards
-
-Reduce generic cards. Every card should represent one of:
-
-- product;
-- measurable system state;
-- evidence item;
-- domain;
-- notification/action.
-
-Product cards should show status such as:
-
-```text
-DEFINED
-IMPLEMENTED
-OBSERVED
-VALIDATED
-```
-
-and never imply a stronger state than the underlying evidence.
-
-## Meca ID UI
-
-Minimal profile creation:
+## Meca ID
 
 ```text
 @username
@@ -163,140 +84,46 @@ notification preferences
 
 No avatar uploader in v1.
 
-Wallet UX must state clearly:
+Wallet UX must state that wallet connection demonstrates wallet control rather than legal identity, Mecasimetra does not need a seed phrase/private key, and asset-moving transactions require customer authorization through the appropriate wallet flow.
 
-- wallet connection proves wallet control, not legal identity;
-- Mecasimetra never needs a seed phrase;
-- asset-moving transactions are reviewed/signed in the user's wallet;
-- regulated features may have separate eligibility requirements.
+## Verify
 
-## Verify UI
+Show contractually relevant customer outcomes and billing reconciliation. A details view may explain the agreed billing policy and adjustments but must not expose proprietary optimization methods.
 
-The flagship customer card should be economic and understandable:
+## Prime
 
-```text
-Qualified savings       $X
-Customer retained       $Y
-Mecasimetra fee         $Z
-Contribution allocation $C
-Quality pass rate       Q%
-```
+Show customer-relevant service state, quality/service status, cost impact, and latency where appropriate. Do not expose internal decision weights, hidden reasoning, proprietary algorithms, or private model-selection data.
 
-A “How calculated” drawer should show baseline policy, policy version, excluded requests, and adjustment events without exposing proprietary model-selection logic.
+## Continuity
 
-## Prime UI
+Show understandable operational state, trends, and alerts. Do not expose private detection methodology or research internals.
 
-Do not show secret routing weights.
+## Signal
 
-Show outcomes:
+Each notification should include a clear title, relevant reason, severity, timestamp, and customer action when appropriate. Avoid manipulative engagement mechanics or false urgency.
 
-```text
-Route: Efficient model
-Reason: quality confidence passed
-Baseline: Premium route
-Cost delta: -X%
-Latency delta: +Y ms
-Quality gate: PASS
-```
+## Wallet
 
-## Continuity UI
+Show connected wallet, public address where appropriate, session/authentication state, and disconnect controls. Transaction preparation must present destination, asset/value, network information, purpose, and a clear customer review/sign step where applicable.
 
-Show trends and calibrated state rather than one magical κ number.
+Never request or display seed phrases/private keys.
 
-Recommended components:
+## Legal and trust UI
 
-- continuity trend;
-- normalized hazard trend;
-- current calibration/policy name;
-- regime-change markers;
-- data sufficiency/evidence state.
-
-## Signal UI
-
-Notifications should have:
-
-- event title;
-- reason;
-- evidence/trigger;
-- recommended next step;
-- optional customer-authorized action;
-- severity;
-- timestamp.
-
-Avoid human-like urgency or manipulative engagement mechanics.
-
-## Wallet UI
-
-Wallet area should prioritize self-custody clarity:
-
-```text
-Connected wallet
-Public address
-Last authentication
-Session status
-[Disconnect]
-```
-
-If a transaction is prepared:
-
-```text
-Review transaction
-Destination
-Asset/value
-Network fee estimate
-Purpose
-[Open wallet to review/sign]
-```
-
-Never ask for or display seed phrases/private keys.
-
-## Legal UI
-
-Legal/privacy/security information should be first-class, not hidden footer boilerplate.
-
-Footer and account settings should expose:
-
-- Terms;
-- Privacy;
-- Security;
-- Data controls;
-- Wallet/self-custody notice;
-- Product evidence definitions;
-- contact/legal channel when established.
+Security, Privacy, Terms, Data Controls, wallet/self-custody notices, and disclosure/evidence policy should be first-class navigation or settings surfaces rather than obscure footer boilerplate.
 
 ## Mobile
 
-- retain a simplified system mark/diagram rather than hiding identity entirely;
-- use bottom-sheet or full-screen navigation with visible close state;
-- stack metrics vertically with clear grouping;
-- ensure wallet signing explanations remain readable;
-- minimum 44px interactive targets;
-- avoid horizontal metric overflow.
+Retain a simplified brand/system identity, use clear full-screen or sheet navigation, maintain readable wallet notices, use minimum 44px interactive targets, and avoid horizontal metric overflow.
 
 ## Accessibility
 
-- keyboard navigation;
-- visible focus rings;
-- semantic headings;
-- sufficient contrast;
-- reduced-motion support;
-- no information conveyed by color alone;
-- accessible form labels/errors;
-- meaningful button names;
-- status announcements where dynamic data updates.
+Provide keyboard navigation, visible focus states, semantic headings, sufficient contrast, reduced-motion support, accessible form labels/errors, meaningful button names, and status announcements for important dynamic updates.
 
 ## Conversion model
 
-The UI should guide users through:
-
 ```text
-UNDERSTAND -> TRUST -> CONNECT -> VERIFY -> SAVE -> EXPAND
+UNDERSTAND -> TRUST -> ENTER -> MEASURE -> USE -> EXPAND
 ```
 
-not:
-
-```text
-IMPRESS -> CONTACT
-```
-
-That change is the central UI upgrade.
+The interface should earn trust through clarity rather than revealing confidential machinery.
