@@ -1,54 +1,54 @@
-# Security Policy
-
-## Supported Versions
-
-| Version | Supported          |
-| ------- | ------------------ |
-| main    | :white_check_mark: |
-
-## Reporting a Vulnerability
-
-If you discover a security vulnerability in this project, please **do not** open a public GitHub issue.
-
-Instead, report it privately:
-
-1. **GitHub Security Advisories** (preferred):  
-   Open a [private security advisory](https://github.com/Waste1and/Mecasimetra/security/advisories/new) in this repository.
-
-2. **Email** (if GitHub advisory is not available):  
-   Send a detailed report to the repository owner via the contact form on the [Mecasimetra website](https://waste1and.github.io/Mecasimetra/).
-
-### What to include in your report
-
-- Description of the vulnerability and its potential impact
-- Steps to reproduce (proof-of-concept if possible)
-- Affected files or components
-- Your suggested fix (optional but appreciated)
-
-### Response timeline (aspirational — best effort, no guarantee)
-
-| Stage               | Target time   |
-| ------------------- | ------------- |
-| Initial response    | 48 hours      |
-| Triage/assessment   | 5 business days |
-| Fix or workaround   | 30 days (depending on severity) |
-
-These are aspirational goals, not contractual commitments. As noted below, this project has no formal security team and responses are provided on a best-efforts basis.
+# Security Policy — Mecasimetra Systems & Kappology
 
 ## Scope
 
-This policy applies to the static website and all source code in this repository. It does **not** apply to third-party services or infrastructure not managed by this project.
+This public policy covers the Mecasimetra website and public product code/documentation in this repository. Private research, production infrastructure, proprietary services, and customer systems may have additional internal controls and incident procedures.
 
-## Out of Scope
+## Reporting a vulnerability
 
-- Vulnerabilities in third-party fonts or CDNs (report to the relevant vendor)
-- Social engineering attacks
-- Physical security issues
+Do not open a public issue containing exploit details, credentials, customer data, or security-sensitive information.
 
-## Disclosure Policy
+Preferred reporting path:
 
-We follow a coordinated disclosure model. We ask that you give us a reasonable time to address the issue before any public disclosure.
+1. use GitHub Security Advisories for this repository when available; or
+2. use the official company security/contact channel once published.
+
+Until a dedicated company security contact exists, use the repository's private GitHub security-reporting mechanism rather than public discussion.
+
+## What to include
+
+- affected component;
+- concise vulnerability description;
+- potential impact;
+- reproduction steps where safe;
+- relevant version/commit; and
+- suggested remediation if known.
+
+Do not include real seed phrases, private keys, unrestricted API credentials, or unnecessary customer data in a report.
+
+## Public security commitments
+
+The product architecture is designed around:
+
+- minimal data collection;
+- customer-controlled wallet custody in the initial wallet design;
+- no seed/private-key collection through normal product flows;
+- separation of public interfaces from private security logic;
+- narrow operational-agent permissions;
+- secret management outside source control;
+- auditable release/change processes; and
+- coordinated vulnerability disclosure.
+
+These are architectural commitments, not claims of certification. Public materials must not imply SOC 2, ISO 27001, PCI, HIPAA, or another certification/compliance status unless it has actually been obtained for the applicable service.
+
+## Responsible disclosure
+
+Please provide a reasonable opportunity to investigate and remediate a reported issue before public disclosure. Response times may vary while the company is in development and are not contractual service-level commitments unless a separate agreement states otherwise.
+
+## Out of scope
+
+Reports about third-party systems not controlled by Mecasimetra should normally be directed to the responsible provider, unless the issue arises from Mecasimetra's integration or configuration.
 
 ---
 
-*This policy is provided as a best-effort standard for an open-source static site. There is no formal security team; the maintainer will respond on a best-efforts basis.*
+© 2026 Mecasimetra Systems & Kappology.
