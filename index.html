@@ -1,859 +1,307 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mecasimetra — Kappology &amp; Intelligence Systems. Continuity-first control software built on the κ–λ–β_c framework. Founded by Zechariah Slaughter, Engineer and Founder of Kappology." />
-  <meta name="theme-color" content="#04040a" />
-  <title>Mecasimetra — Kappology · Intelligence Systems</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-
-  <!-- Privacy-first analytics (Plausible) — replace data-domain if needed -->
-  <script defer data-domain="mecasimetra.com" src="https://plausible.io/js/script.js"></script>
-
+  <meta name="description" content="Mecasimetra Systems & Kappology develops computational systems, AI infrastructure, secure customer controls, and multidisciplinary systems research." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Mecasimetra Systems & Kappology</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <a href="#hero" class="skip-link">Skip to main content</a>
-
-  <!-- Particle canvas -->
-  <canvas id="canvas-bg" aria-hidden="true"></canvas>
-
-  <!-- ══ NAVIGATION ══════════════════════════ -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="Mecasimetra home">
-        <div class="nav-logo-mark">M</div>
-        <span class="nav-logo-text">Mecasimetra</span>
+  <header class="site-header" data-header>
+    <div class="shell nav-shell">
+      <a class="brand" href="#top" aria-label="Mecasimetra Systems & Kappology home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span class="brand-copy">
+          <strong>Mecasimetra</strong>
+          <small>Systems & Kappology</small>
+        </span>
       </a>
 
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#founder">Founder</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="glossary.html">Glossary</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme">
-          <span class="theme-icon-dark">☀️</span>
-          <span class="theme-icon-light">🌙</span>
-        </button>
-        <button class="btn btn-signup" id="open-signup" aria-label="Get access">Get Access</button>
-      </div>
-
-      <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <span>Menu</span>
       </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation" data-nav>
+        <a href="#system">System</a>
+        <a href="#products">Products</a>
+        <a href="#domains">Domains</a>
+        <a href="#research">Kappology</a>
+        <a href="#trust">Trust</a>
+        <a class="nav-action" href="#access">Enter system</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <!-- ══ HERO ═════════════════════════════════ -->
-  <section id="hero">
-    <div class="hero-inner container">
-      <!-- Left -->
-      <div class="hero-content">
-        <div class="hero-tag">Kappology · Intelligence Systems</div>
-        <h1 class="hero-heading">
-          Continuity-First<span class="accent"> κ</span>
-          <span class="line2">Control Systems</span>
-        </h1>
-        <p class="hero-sub">
-          Mecasimetra builds autonomous, kappology-governed systems using the
-          κ–λ–β<sub>c</sub><span class="visually-hidden"> (kappa–lambda–beta critical)</span> framework — where hazard-rate measurement drives
-          real-time governance, load-shedding, and self-correcting intelligence.
-        </p>
-        <div class="hero-actions">
-          <a href="#services" class="btn btn-primary">Explore Services</a>
-          <a href="glossary.html" class="btn btn-secondary">Kappology Glossary →</a>
-        </div>
-      </div>
-
-      <!-- Right: visual orb -->
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-orb">
-          <div class="hero-orb-core">Mcs</div>
-        </div>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-value"><span data-count="50">0</span><span>+</span></div>
-            <div class="hero-stat-label">Systems Built</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value"><span data-count="99">0</span><span>%</span></div>
-            <div class="hero-stat-label">Uptime SLA</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value"><span data-count="8">0</span><span>+</span></div>
-            <div class="hero-stat-label">Years Deep Tech</div>
-          </div>
-        </div>
-
-        <div class="hero-floating-card card-1">
-          <div class="fc-label">κ Continuity</div>
-          <div class="fc-value">0.97</div>
-        </div>
-        <div class="hero-floating-card card-2">
-          <div class="fc-label">λ Hazard Rate</div>
-          <div class="fc-value">0.03</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ ABOUT ════════════════════════════════ -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-        <!-- Left: content -->
-        <div class="about-content">
-          <p class="section-label reveal">About Mecasimetra</p>
-          <h2 class="section-title reveal reveal-delay-1">
-            Continuity-First.<br />By&nbsp;<span class="accent">Design</span>.
-          </h2>
-          <p class="reveal reveal-delay-2">
-            <strong>Mecasimetra</strong> is the engineering practice of
-            <strong>Zechariah Slaughter</strong> — founder of
-            <strong>Kappology</strong>, the formal discipline for
-            continuity-first control systems. Every system is designed
-            around the κ–λ–β<sub>c</sub> framework: measure hazard, govern
-            continuity, and prevent discontinuity before it occurs.
+  <main id="main">
+    <section id="top" class="hero section">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Mecasimetra Systems & Kappology</p>
+          <h1>Computational systems for measurable outcomes.</h1>
+          <p class="hero-lead">
+            Mecasimetra develops AI infrastructure and customer control systems designed around measurable service outcomes, minimal data collection, and secure operation.
           </p>
-          <p class="reveal reveal-delay-3">
-            From real-time <strong>hazard-rate instrumentation</strong> and
-            κ-governed <strong>ML retraining pipelines</strong> to
-            load-shedding governance and full-stack AI — the work spans
-            everything a continuity-first architecture demands.
-          </p>
-          <p class="reveal reveal-delay-4">
-            The approach is mathematical: model the system's health as κ,
-            track λ continuously, and never let β<sub>c</sub> go unheard.
-          </p>
-
-          <div class="about-values reveal reveal-delay-5">
-            <div class="value-card">
-              <div class="value-icon">κ</div>
-              <div class="value-title">Continuity-First</div>
-              <div class="value-desc">Every architecture is designed to persist, adapt, and self-govern under real-world load.</div>
-            </div>
-            <div class="value-card">
-              <div class="value-icon">λ</div>
-              <div class="value-title">Hazard Awareness</div>
-              <div class="value-desc">Risk is measured continuously — not discovered after the fact.</div>
-            </div>
-            <div class="value-card">
-              <div class="value-icon">β</div>
-              <div class="value-title">Governed Thresholds</div>
-              <div class="value-desc">β_c = 2.0 is non-negotiable. When the system must act, it acts.</div>
-            </div>
-            <div class="value-card">
-              <div class="value-icon">𝕂</div>
-              <div class="value-title">Formal Rigour</div>
-              <div class="value-desc">Kappology provides the mathematical vocabulary for systems that must not fail.</div>
-            </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#system">View Meca System</a>
+            <a class="button button-secondary" href="#access">Enter system</a>
           </div>
+          <p class="hero-note">Public product information only. Proprietary research and implementation methods remain private.</p>
         </div>
 
-        <!-- Right: terminal -->
-        <div class="reveal reveal-delay-2">
-          <div class="about-terminal">
-            <div class="terminal-bar">
-              <span class="terminal-dot red"></span>
-              <span class="terminal-dot yellow"></span>
-              <span class="terminal-dot green"></span>
-              <span class="terminal-title">mecasimetra — zsh</span>
-            </div>
-            <div class="terminal-body">
-              <div class="t-line">
-                <span class="t-prompt">›</span>
-                <span class="t-cmd" data-text="whoami">whoami</span>
-              </div>
-              <div class="t-line">
-                <span class="t-output"><span class="highlight">Zechariah Slaughter</span> — Engineer &amp; Founder of Kappology</span>
-              </div>
-              <div class="t-line">
-                <span class="t-prompt">›</span>
-                <span class="t-cmd" data-text="kappa --status">kappa --status</span>
-              </div>
-              <div class="t-line">
-                <span class="t-output"><span class="highlight">κ</span> = 0.97 · λ = 0.03 · β_c = 2.0</span>
-              </div>
-              <div class="t-line">
-                <span class="t-output"><span class="highlight">STATUS</span> healthy — no intervention required</span>
-              </div>
-              <div class="t-line">
-                <span class="t-prompt">›</span>
-                <span class="t-cmd" data-text="cat framework.txt">cat framework.txt</span>
-              </div>
-              <div class="t-line">
-                <span class="t-output"><span class="highlight">→</span> Continuity-First Control Systems</span>
-              </div>
-              <div class="t-line">
-                <span class="t-output"><span class="highlight">→</span> Hazard-Rate Instrumentation</span>
-              </div>
-              <div class="t-line">
-                <span class="t-output"><span class="highlight">→</span> Load-Shedding Governance</span>
-              </div>
-              <div class="t-line">
-                <span class="t-output"><span class="highlight">→</span> κ-Governed ML Retraining</span>
-              </div>
-              <div class="t-line">
-                <span class="t-prompt">›</span>
-                <span class="t-cmd" data-text="echo $STATUS">echo $STATUS</span>
-              </div>
-              <div class="t-line">
-                <span class="t-output"><span class="highlight">AVAILABLE</span> — open to new projects</span>
-              </div>
-              <div class="t-line">
-                <span class="t-prompt">›</span>
-                <span class="t-cursor"></span>
-              </div>
-            </div>
+        <div class="control-frame" aria-label="Meca System overview">
+          <div class="frame-topline">
+            <span>MECA SYSTEM</span>
+            <span class="status-dot"><i></i> Product architecture</span>
+          </div>
+          <div class="system-map" aria-hidden="true">
+            <div class="map-node map-input">INPUT</div>
+            <div class="map-line horizontal"></div>
+            <div class="map-node">VERIFY</div>
+            <div class="map-line horizontal"></div>
+            <div class="map-node map-primary">PRIME</div>
+            <div class="map-line horizontal"></div>
+            <div class="map-node">COMPUTE</div>
+            <div class="map-line vertical"></div>
+            <div class="map-node map-lower">CONTINUITY</div>
+            <div class="map-line vertical lower"></div>
+            <div class="map-node map-signal">SIGNAL</div>
+          </div>
+          <div class="frame-footer">
+            <span>Identity</span><span>Measurement</span><span>Control</span><span>Notification</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══ FOUNDER ═══════════════════════════════ -->
-  <section id="founder" class="founder-section">
-    <div class="container">
-      <div class="founder-inner">
-
-        <div class="founder-emblem reveal" aria-hidden="true">
-          <div class="founder-emblem-ring">
-            <div class="founder-emblem-core">Z·S</div>
+    <section id="system" class="section section-border">
+      <div class="shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">One customer system</p>
+            <h2>Identity to action, without unnecessary complexity.</h2>
           </div>
-          <div class="founder-kappa reveal reveal-delay-1">κ = 1</div>
-        </div>
-
-        <div class="founder-content">
-          <p class="section-label reveal">Founder &amp; Engineer</p>
-          <h2 class="section-title reveal reveal-delay-1">
-            Zechariah Slaughter
-          </h2>
-          <p class="founder-tagline reveal reveal-delay-2">
-            Engineer and Founder · <span class="accent">Founder of Kappology</span>
+          <p>
+            Meca System combines account identity, measurable product outcomes, managed optimization, operational monitoring, notifications, and customer-authorized actions in one control surface.
           </p>
-          <p class="reveal reveal-delay-3">
-            Zechariah Slaughter is the founder of <strong>Kappology</strong> — the formal
-            engineering discipline for continuity-first control systems. Through the
-            κ–λ–β<sub>c</sub> framework, he has built a rigorous mathematical vocabulary
-            for measuring, governing, and preserving system health at scale.
-          </p>
-          <p class="reveal reveal-delay-4">
-            In the tradition of Newton's insistence on formal, mathematical accounts of
-            natural behaviour — and Edison's relentless application of theory to working
-            machines — Zechariah applies rigorous modelling to the design of autonomous
-            systems that must not fail. The work is continuity-first: build systems that
-            persist, adapt, and self-govern under real-world load.
-          </p>
-          <blockquote class="founder-quote reveal reveal-delay-5">
-            "A system that cannot measure its own health cannot govern itself.
-             κ is the number every control loop needs."
-            <cite>— Zechariah Slaughter</cite>
-          </blockquote>
-          <div class="founder-actions reveal reveal-delay-5">
-            <a href="glossary.html#/term/kappology" class="btn btn-primary">Explore Kappology →</a>
-            <a href="glossary.html#/term/kappa" class="btn btn-secondary">Define κ (kappa)</a>
-          </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SKILLS ═══════════════════════════════ -->
-  <section id="skills">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-label reveal">Kappology &amp; Technical Stack</p>
-        <h2 class="section-title reveal reveal-delay-1">
-          Skills &amp; Expertise
-        </h2>
-        <p class="section-sub reveal reveal-delay-2">
-          A deep, cross-disciplinary skill set — from the κ–λ–β<sub>c</sub>
-          kappology framework to production ML, data engineering, and cloud infrastructure.
-        </p>
-      </div>
-
-      <div class="skills-grid">
-
-        <div class="skill-card reveal reveal-delay-1">
-          <div class="skill-icon">🧠</div>
-          <div class="skill-name">Machine Learning &amp; AI</div>
-          <div class="skill-desc">
-            Building, training, and deploying production-grade ML models —
-            from classical algorithms to large-scale deep learning systems.
-          </div>
-          <div class="skill-tags">
-            <span class="tag">PyTorch</span>
-            <span class="tag">TensorFlow</span>
-            <span class="tag">scikit-learn</span>
-            <span class="tag">Hugging Face</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">LangChain</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal reveal-delay-2">
-          <div class="skill-icon">🔄</div>
-          <div class="skill-name">Data Engineering</div>
-          <div class="skill-desc">
-            Architecting robust data pipelines, warehouse solutions, and
-            real-time streaming infrastructure at scale.
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Apache Spark</span>
-            <span class="tag">Kafka</span>
-            <span class="tag">dbt</span>
-            <span class="tag">Airflow</span>
-            <span class="tag">Snowflake</span>
-            <span class="tag">BigQuery</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal reveal-delay-3">
-          <div class="skill-icon">☁️</div>
-          <div class="skill-name">Cloud &amp; Infrastructure</div>
-          <div class="skill-desc">
-            Deploying scalable, fault-tolerant systems on cloud platforms
-            with infrastructure-as-code and containerised workloads.
-          </div>
-          <div class="skill-tags">
-            <span class="tag">AWS</span>
-            <span class="tag">GCP</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Terraform</span>
-            <span class="tag">CI/CD</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal reveal-delay-1">
-          <div class="skill-icon">⚙️</div>
-          <div class="skill-name">Software Engineering</div>
-          <div class="skill-desc">
-            Writing clean, performant, production-quality code across
-            multiple languages and paradigms with robust testing.
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Rust</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Go</span>
-            <span class="tag">SQL</span>
-            <span class="tag">Bash</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal reveal-delay-2">
-          <div class="skill-icon">🤖</div>
-          <div class="skill-name">AI Agents &amp; Automation</div>
-          <div class="skill-desc">
-            Designing autonomous agent architectures that integrate with
-            APIs, tools, and real-world systems to drive end-to-end automation.
-          </div>
-          <div class="skill-tags">
-            <span class="tag">LLM Agents</span>
-            <span class="tag">RAG Systems</span>
-            <span class="tag">Prompt Engineering</span>
-            <span class="tag">OpenAI API</span>
-            <span class="tag">Tool Use</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal reveal-delay-3">
-          <div class="skill-icon">📊</div>
-          <div class="skill-name">Analytics &amp; Visualisation</div>
-          <div class="skill-desc">
-            Transforming raw data into clear analytical narratives and
-            interactive dashboards that drive strategic decisions.
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Tableau</span>
-            <span class="tag">Plotly</span>
-            <span class="tag">Grafana</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">NumPy</span>
-            <span class="tag">Jupyter</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal reveal-delay-1" style="border-color: rgba(247,0,255,0.3); background: rgba(247,0,255,0.04);">
-          <div class="skill-icon" style="color: var(--accent);">𝕂</div>
-          <div class="skill-name">Kappology Framework</div>
-          <div class="skill-desc">
-            Continuity-first control system design using the κ–λ–β<sub>c</sub>
-            framework — hazard-rate measurement, continuity scalar computation,
-            and governance-layer enforcement.
-          </div>
-          <div class="skill-tags">
-            <span class="tag">κ Continuity</span>
-            <span class="tag">λ Hazard Rate</span>
-            <span class="tag">β_c Threshold</span>
-            <span class="tag">Load Shedding</span>
-            <span class="tag">Retrain Triggers</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SERVICES ══════════════════════════════ -->
-  <section id="services">
-    <div class="container">
-      <div class="grid-overlay" aria-hidden="true"></div>
-      <div style="position:relative; z-index:1;">
-        <p class="section-label reveal">What I Build</p>
-        <h2 class="section-title reveal reveal-delay-1">Services &amp; Offerings</h2>
-        <p class="section-sub reveal reveal-delay-2">
-          End-to-end intelligence systems delivery — from kappology-governed
-          control software to production AI, data platforms, and strategic consulting.
-        </p>
-
-        <div class="services-grid">
-
-          <div class="service-card reveal reveal-delay-1">
-            <div class="service-num">01</div>
-            <div class="service-content">
-              <h3 class="service-title">Continuity Audit (κ–λ Health Modelling)</h3>
-              <p class="service-desc">
-                Assess the continuity health of your systems using the κ–λ–β<sub>c</sub>
-                framework. We model hazard accumulation, compute continuity scalars,
-                and identify where your systems are approaching bifurcation risk.
-              </p>
-              <ul class="service-list">
-                <li>Hazard-rate baseline measurement</li>
-                <li>κ health model construction</li>
-                <li>Risk scoring &amp; bifurcation mapping</li>
-                <li>Remediation recommendations</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="service-card reveal reveal-delay-2">
-            <div class="service-num">02</div>
-            <div class="service-content">
-              <h3 class="service-title">Hazard-Rate Instrumentation (λ Pipelines)</h3>
-              <p class="service-desc">
-                Build and deploy real-time λ instrumentation pipelines that track
-                system degradation as it happens — feeding κ dashboards and
-                automated governance triggers.
-              </p>
-              <ul class="service-list">
-                <li>Real-time λ(t) streaming pipelines</li>
-                <li>κ monitoring dashboards</li>
-                <li>Automated retrain &amp; alert triggers</li>
-                <li>Integration with existing observability stacks</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="service-card reveal reveal-delay-3">
-            <div class="service-num">03</div>
-            <div class="service-content">
-              <h3 class="service-title">Control Software &amp; Load-Shedding Governance</h3>
-              <p class="service-desc">
-                Design and implement continuity-first control software with
-                built-in load-shedding governance — systems that automatically
-                respond when λ approaches β<sub>c</sub>.
-              </p>
-              <ul class="service-list">
-                <li>β<sub>c</sub>-governed load-shedding logic</li>
-                <li>Controlled pause &amp; recovery protocols</li>
-                <li>Autonomous retrain trigger systems</li>
-                <li>Safety boundary enforcement (non-bypassable)</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="service-card reveal reveal-delay-4">
-            <div class="service-num">04</div>
-            <div class="service-content">
-              <h3 class="service-title">AI &amp; ML Systems Engineering</h3>
-              <p class="service-desc">
-                Full-lifecycle machine learning — from problem framing and
-                data preparation through model development, evaluation, and
-                production deployment with kappology-governed retraining.
-              </p>
-              <ul class="service-list">
-                <li>Custom model architecture &amp; training</li>
-                <li>MLOps pipelines with κ-governed retraining</li>
-                <li>Real-time &amp; batch inference systems</li>
-                <li>LLM fine-tuning &amp; RAG pipelines</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="service-card reveal reveal-delay-1">
-            <div class="service-num">05</div>
-            <div class="service-content">
-              <h3 class="service-title">Data Platform Architecture</h3>
-              <p class="service-desc">
-                Designing and building the data infrastructure that powers
-                intelligence — from ingestion and transformation to warehouse
-                design, governance, and data quality frameworks.
-              </p>
-              <ul class="service-list">
-                <li>Modern data stack implementation</li>
-                <li>Stream &amp; batch pipeline engineering</li>
-                <li>Data warehouse &amp; lakehouse design</li>
-                <li>Data contracts &amp; quality monitoring</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="service-card reveal reveal-delay-2">
-            <div class="service-num">06</div>
-            <div class="service-content">
-              <h3 class="service-title">Custom Consulting &amp; Architecture Advisory</h3>
-              <p class="service-desc">
-                Strategic technical advisory for organisations building or scaling
-                AI-powered and kappology-governed systems — architecture reviews,
-                technology selection, and continuity-first roadmap planning.
-              </p>
-              <ul class="service-list">
-                <li>Kappology framework adoption</li>
-                <li>Architecture design &amp; review</li>
-                <li>Technology strategy &amp; selection</li>
-                <li>Technical due diligence</li>
-              </ul>
-            </div>
-          </div>
-
+        <div class="flow" aria-label="Meca System customer flow">
+          <div><span>01</span><strong>Identity</strong><small>Create a minimal account.</small></div>
+          <div><span>02</span><strong>Measure</strong><small>Understand usage and outcomes.</small></div>
+          <div><span>03</span><strong>Optimize</strong><small>Apply managed computational services.</small></div>
+          <div><span>04</span><strong>Monitor</strong><small>Track meaningful operational change.</small></div>
+          <div><span>05</span><strong>Notify</strong><small>Surface product and security events.</small></div>
+          <div><span>06</span><strong>Act</strong><small>Keep authorization with the customer.</small></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══ PROJECTS ══════════════════════════════ -->
-  <section id="projects">
-    <div class="container">
-      <div class="projects-header">
+    <section id="products" class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Products</p>
+          <h2>A modular system with one account and one trust model.</h2>
+          <p>Product names describe customer-facing functions. Internal decision methods and proprietary research are not exposed through the public interface.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card featured">
+            <div class="card-meta"><span>MECA ID</span><span class="pill">Design</span></div>
+            <h3>Minimal identity.</h3>
+            <p>Username, short description, optional wallet linking, product status, and notification preferences. No profile picture is required in the initial design.</p>
+            <ul>
+              <li>Customer-controlled wallet linking</li>
+              <li>Minimal account profile</li>
+              <li>Explicit data controls</li>
+            </ul>
+          </article>
+
+          <article class="product-card">
+            <div class="card-meta"><span>VERIFY</span><span class="pill">Development</span></div>
+            <h3>Measure attributable value.</h3>
+            <p>Customer-facing reconciliation for agreed service outcomes, usage, costs, adjustments, and qualified value where defined by contract.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="card-meta"><span>PRIME</span><span class="pill">Development</span></div>
+            <h3>Managed computational optimization.</h3>
+            <p>Supported AI workloads are managed against customer-defined quality, cost, and service requirements while the implementation remains proprietary.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="card-meta"><span>CONTINUITY</span><span class="pill">Research + Development</span></div>
+            <h3>Operational state that stays understandable.</h3>
+            <p>Customer-visible monitoring for service state, meaningful changes, trends, and alerts without revealing private detection methods.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="card-meta"><span>SIGNAL</span><span class="pill">Design</span></div>
+            <h3>Notifications with a reason.</h3>
+            <p>Product, operational, and security notifications tied to account events and customer settings. Notifications do not authorize financial transactions.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="card-meta"><span>EDGE / REPLAY</span><span class="pill">Research</span></div>
+            <h3>Owned inference and scenario analysis.</h3>
+            <p>Future product surfaces for bounded Mecasimetra-hosted inference and systems analysis, released only where evidence supports the service.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-invert">
+      <div class="shell outcome-grid">
         <div>
-          <p class="section-label reveal">Selected Work</p>
-          <h2 class="section-title reveal reveal-delay-1">Projects &amp; Systems</h2>
+          <p class="eyebrow">Customer view</p>
+          <h2>Show the outcome. Keep the machinery private.</h2>
+          <p>The interface is designed to make usage, service state, charges, permissions, and customer actions understandable without exposing confidential algorithms, benchmarks, calibration, model-selection logic, or security controls.</p>
         </div>
-        <a href="#contact" class="btn btn-secondary reveal reveal-delay-2">Start a Project →</a>
+        <div class="dashboard-mock" aria-label="Example customer dashboard">
+          <div class="dashboard-head"><strong>Overview</strong><span>Example interface</span></div>
+          <div class="metric-grid">
+            <div><small>Service</small><strong>Active</strong></div>
+            <div><small>Quality policy</small><strong>Configured</strong></div>
+            <div><small>Value report</small><strong>Available</strong></div>
+            <div><small>Signals</small><strong>2 notices</strong></div>
+          </div>
+          <div class="dashboard-row"><span>Prime</span><span>Managed</span></div>
+          <div class="dashboard-row"><span>Continuity</span><span>Nominal</span></div>
+          <div class="dashboard-row"><span>Wallet authorization</span><span>Customer controlled</span></div>
+        </div>
       </div>
+    </section>
 
-      <div class="projects-grid">
-
-        <div class="project-card reveal reveal-delay-1">
-          <div class="project-thumb">
-            <div class="project-thumb-inner">📡</div>
+    <section id="domains" class="section">
+      <div class="shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Company domains</p>
+            <h2>Built to extend across physical and digital systems.</h2>
           </div>
-          <div class="project-body">
-            <div class="project-cat">Real-Time ML</div>
-            <h3 class="project-title">Adaptive Signal Intelligence</h3>
-            <p class="project-desc">
-              Real-time anomaly detection engine processing 50k+ events/sec
-              with sub-20ms latency using streaming ML models and dynamic
-              threshold adaptation.
-            </p>
-            <div class="project-stack">
-              <span class="tag">Kafka</span>
-              <span class="tag">PyTorch</span>
-              <span class="tag">Rust</span>
-              <span class="tag">Kubernetes</span>
-            </div>
-          </div>
+          <p>Computing is the current commercial focus. Other domains are research and development directions unless a specific product is identified as deployed.</p>
         </div>
 
-        <div class="project-card reveal reveal-delay-2">
-          <div class="project-thumb">
-            <div class="project-thumb-inner">🗄️</div>
-          </div>
-          <div class="project-body">
-            <div class="project-cat">Data Platform</div>
-            <h3 class="project-title">Unified Intelligence Lakehouse</h3>
-            <p class="project-desc">
-              Enterprise data lakehouse serving 200+ analysts, replacing
-              fragmented pipelines with a single, governed platform reducing
-              query times by 85%.
-            </p>
-            <div class="project-stack">
-              <span class="tag">Spark</span>
-              <span class="tag">Delta Lake</span>
-              <span class="tag">dbt</span>
-              <span class="tag">Airflow</span>
-            </div>
-          </div>
+        <div class="domain-grid">
+          <article><span>01</span><h3>Computing & AI</h3><p>AI infrastructure, software systems, orchestration, automation, security, data systems, and edge computing.</p></article>
+          <article><span>02</span><h3>Agriculture</h3><p>Sensing, resource optimization, automation, monitoring, and resilient farm infrastructure research.</p></article>
+          <article><span>03</span><h3>Biomedical Systems</h3><p>Biomedical computation and systems research subject to independent scientific, ethical, privacy, safety, and regulatory review.</p></article>
+          <article><span>04</span><h3>Energy & Infrastructure</h3><p>Energy efficiency, cooling, telecommunications, data-center systems, resilient networks, and monitoring.</p></article>
+          <article><span>05</span><h3>Industrial Systems</h3><p>Automation, manufacturing systems, logistics, machinery monitoring, and operational resilience.</p></article>
+          <article><span>06</span><h3>Systems Research</h3><p>Kappology and related private research supporting the company's long-term systems program.</p></article>
         </div>
-
-        <div class="project-card reveal reveal-delay-3">
-          <div class="project-thumb">
-            <div class="project-thumb-inner">🤖</div>
-          </div>
-          <div class="project-body">
-            <div class="project-cat">AI Agents</div>
-            <h3 class="project-title">Autonomous Research Agent</h3>
-            <p class="project-desc">
-              Multi-agent system that autonomously gathers, synthesises, and
-              validates information across the web — producing structured
-              intelligence reports on demand.
-            </p>
-            <div class="project-stack">
-              <span class="tag">LangChain</span>
-              <span class="tag">GPT-4</span>
-              <span class="tag">Python</span>
-              <span class="tag">FastAPI</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-delay-1">
-          <div class="project-thumb">
-            <div class="project-thumb-inner">κ</div>
-          </div>
-          <div class="project-body">
-            <div class="project-cat">Kappology</div>
-            <h3 class="project-title">κ–λ Continuity Monitor</h3>
-            <p class="project-desc">
-              Real-time κ health dashboard and λ instrumentation layer for
-              production ML systems — computing continuity scalars per service,
-              triggering retrain events when κ drops below threshold.
-            </p>
-            <div class="project-stack">
-              <span class="tag">Python</span>
-              <span class="tag">Kappology</span>
-              <span class="tag">Kafka</span>
-              <span class="tag">Grafana</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-delay-2">
-          <div class="project-thumb">
-            <div class="project-thumb-inner">🔐</div>
-          </div>
-          <div class="project-body">
-            <div class="project-cat">Security AI</div>
-            <h3 class="project-title">Threat Intelligence Classifier</h3>
-            <p class="project-desc">
-              NLP-based threat classification system processing security logs
-              and feeds in real time, surfacing actionable alerts with 96.8%
-              precision.
-            </p>
-            <div class="project-stack">
-              <span class="tag">Transformers</span>
-              <span class="tag">Elasticsearch</span>
-              <span class="tag">Python</span>
-              <span class="tag">Redis</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-delay-3">
-          <div class="project-thumb">
-            <div class="project-thumb-inner">🌐</div>
-          </div>
-          <div class="project-body">
-            <div class="project-cat">Infrastructure</div>
-            <h3 class="project-title">Distributed Inference Grid</h3>
-            <p class="project-desc">
-              Multi-region, auto-scaling model serving infrastructure capable
-              of handling variable traffic spikes with guaranteed SLA and
-              cost-optimised routing.
-            </p>
-            <div class="project-stack">
-              <span class="tag">Kubernetes</span>
-              <span class="tag">Triton</span>
-              <span class="tag">Terraform</span>
-              <span class="tag">GCP</span>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══ CONTACT ═══════════════════════════════ -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-
-        <!-- Left: info -->
-        <div class="contact-info">
-          <p class="section-label reveal">Get In Touch</p>
-          <h2 class="section-title reveal reveal-delay-1">
-            Let's Build Something<br />Continuous
-          </h2>
-          <p class="section-sub reveal reveal-delay-2">
-            Have a system that needs kappology governance, continuity instrumentation,
-            or intelligent control software? Reach out — I take on a select number
-            of projects at a time to ensure rigorous delivery.
-          </p>
-
-          <div class="contact-methods reveal reveal-delay-3">
-            <a href="mailto:risin.mojo@icloud.com" class="contact-method">
-              <div class="contact-method-icon">✉️</div>
-              <div>
-                <div class="contact-method-label">Email</div>
-                <div class="contact-method-value">risin.mojo@icloud.com</div>
-              </div>
-            </a>
-            <a href="https://github.com/Waste1and" class="contact-method" target="_blank" rel="noopener noreferrer">
-              <div class="contact-method-icon">🐙</div>
-              <div>
-                <div class="contact-method-label">GitHub</div>
-                <div class="contact-method-value">github.com/Waste1and</div>
-              </div>
-            </a>
-            <a href="https://x.com/itachiseyez" class="contact-method" target="_blank" rel="noopener noreferrer">
-              <div class="contact-method-icon">🐦</div>
-              <div>
-                <div class="contact-method-label">X</div>
-                <div class="contact-method-value">@itachiseyez</div>
-              </div>
-            </a>
-            <a href="https://discord.com/users/spaderjames" class="contact-method" target="_blank" rel="noopener noreferrer">
-              <div class="contact-method-icon">💬</div>
-              <div>
-                <div class="contact-method-label">Discord</div>
-                <div class="contact-method-value">spaderjames</div>
-              </div>
-            </a>
-          </div>
+    <section id="research" class="section section-border research-section">
+      <div class="shell research-grid">
+        <div>
+          <p class="eyebrow">Kappology</p>
+          <h2>The research field behind Mecasimetra.</h2>
         </div>
-
-        <!-- Right: form -->
-        <div class="reveal reveal-delay-2">
-          <!-- action: replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
-          <form id="contact-form" novalidate>
-            <!-- Honeypot — hidden from real users, catches bots -->
-            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
-                <span class="form-error" id="err-name"></span>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-                <span class="form-error" id="err-email"></span>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="subject">Project Type</label>
-              <select id="subject" name="subject">
-                <option value="" disabled selected>Select a service…</option>
-                <option>Continuity Audit (κ–λ Health Modelling)</option>
-                <option>Hazard-Rate Instrumentation (λ Pipelines)</option>
-                <option>Control Software &amp; Load-Shedding Governance</option>
-                <option>AI / ML Systems Engineering</option>
-                <option>Data Platform Architecture</option>
-                <option>Custom Consulting &amp; Architecture Advisory</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Project Brief</label>
-              <textarea id="message" name="message" placeholder="Tell me about your project, goals, and timeline…" required></textarea>
-              <span class="form-error" id="err-message"></span>
-            </div>
-
-            <div class="form-submit">
-              <button type="submit" class="btn btn-primary" id="contact-submit" style="width:100%; justify-content:center;">
-                Send Message →
-              </button>
-            </div>
-            <p class="form-note">
-              <span>🔒</span> Your information is kept confidential and never shared.
-            </p>
-          </form>
+        <div>
+          <p>Kappology is the company's systems-research field, founded by Zechariah Slaughter. Public materials describe its purpose and application areas at a high level.</p>
+          <p>Unpublished formulas, benchmark results, optimization mechanisms, calibration, algorithms, and internal research methods remain within the private research boundary.</p>
+          <a class="text-link" href="glossary.html">Read the public Kappology note →</a>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══ FOOTER ════════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-      <p class="footer-copy">
-        © 2025 <span>Mecasimetra</span>. Kappology — founded by <span>Zechariah Slaughter</span>.
-        Licensed under <a href="LICENSE" style="color:inherit;text-decoration:underline">Apache-2.0</a>.
-      </p>
-      <ul class="footer-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#founder">Founder</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="glossary.html">Glossary</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="CONTRIBUTING.md">Contribute</a></li>
-        <li><a href="DISCLAIMER.md">Disclaimer</a></li>
-        <li><a href="SECURITY.md">Security</a></li>
-      </ul>
+    <section id="trust" class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Trust architecture</p>
+          <h2>Privacy, security, and authorization are product features.</h2>
+        </div>
+
+        <div class="trust-grid">
+          <article>
+            <span class="trust-index">01</span>
+            <h3>Minimal data</h3>
+            <p>Collect only what is needed to provide, secure, measure, support, and bill the selected service. Customer production content is not training data by default.</p>
+          </article>
+          <article>
+            <span class="trust-index">02</span>
+            <h3>Self-custodial by design</h3>
+            <p>Wallet linking can establish wallet control without requiring seed phrases or private keys. Asset-moving actions remain customer-authorized in the initial architecture.</p>
+          </article>
+          <article>
+            <span class="trust-index">03</span>
+            <h3>Separated authority</h3>
+            <p>Site, security, research, release, and treasury automation are designed with separate roles and limited permissions.</p>
+          </article>
+          <article>
+            <span class="trust-index">04</span>
+            <h3>Private implementation</h3>
+            <p>Public interfaces explain customer outcomes. Confidential research, security logic, and proprietary implementation remain private.</p>
+          </article>
+        </div>
+
+        <div class="trust-links">
+          <a href="SECURITY.md">Security</a>
+          <a href="PRIVACY.md">Privacy</a>
+          <a href="TERMS.md">Terms</a>
+          <a href="docs/PUBLIC_PRIVATE_BOUNDARY.md">Disclosure policy</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="access" class="section access-section">
+      <div class="shell access-grid">
+        <div>
+          <p class="eyebrow">Meca ID</p>
+          <h2>Enter the system with less personal data.</h2>
+          <p>Meca ID is in development. The initial account model is intentionally small and designed to support future customer controls without requiring a conventional social profile.</p>
+        </div>
+        <div class="id-card" aria-label="Meca ID preview">
+          <div class="id-card-head"><span>MECA ID</span><span class="pill">Preview</span></div>
+          <label>
+            <span>Username</span>
+            <input type="text" placeholder="@username" disabled />
+          </label>
+          <label>
+            <span>Description</span>
+            <textarea placeholder="Short account description" disabled></textarea>
+          </label>
+          <button class="button button-primary" type="button" disabled>Wallet linking — coming later</button>
+          <small>No seed phrase or private key is ever required through the normal product flow.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section founder-section">
+      <div class="shell founder-grid">
+        <div class="founder-mark" aria-hidden="true">ZS</div>
+        <div>
+          <p class="eyebrow">Founder</p>
+          <h2>Zechariah Slaughter</h2>
+          <p>Founder of Mecasimetra Systems & Kappology. The company is being built around systems research, computational infrastructure, and disciplined separation between public products and private intellectual property.</p>
+          <a class="text-link" href="https://github.com/Waste1and" target="_blank" rel="noopener noreferrer">GitHub profile →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <strong>Mecasimetra Systems & Kappology</strong>
+        <p>Computational systems, multidisciplinary research, and secure customer control.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#products">Products</a>
+        <a href="#trust">Trust</a>
+        <a href="SECURITY.md">Security</a>
+        <a href="PRIVACY.md">Privacy</a>
+        <a href="TERMS.md">Terms</a>
+      </div>
+      <p class="copyright">© 2026 Mecasimetra Systems & Kappology.</p>
     </div>
   </footer>
 
-  <!-- ══ SIGN-UP MODAL ════════════════════════ -->
-  <div id="signup-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-    <div class="modal-card">
-      <button class="modal-close" id="close-signup" aria-label="Close sign-up modal">✕</button>
-
-      <div class="modal-header">
-        <div class="modal-badge">Early Access</div>
-        <h2 class="modal-title" id="modal-title">Join the Mecasimetra Network</h2>
-        <p class="modal-sub">
-          Be first to hear about new capabilities, published research, and select project openings.
-          No spam — ever.
-        </p>
-      </div>
-
-      <!-- replace YOUR_SIGNUP_FORM_ID with your Formspree sign-up form ID -->
-      <form id="signup-form" novalidate>
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-        <div class="form-group">
-          <label for="su-name">Name</label>
-          <input type="text" id="su-name" name="name" placeholder="Your name" required autocomplete="name" />
-          <span class="form-error" id="err-su-name"></span>
-        </div>
-
-        <div class="form-group">
-          <label for="su-email">Email</label>
-          <input type="email" id="su-email" name="email" placeholder="your@email.com" required autocomplete="email" />
-          <span class="form-error" id="err-su-email"></span>
-        </div>
-
-        <div class="form-group">
-          <label for="su-interest">Primary Interest</label>
-          <select id="su-interest" name="interest">
-            <option value="" disabled selected>What interests you most?</option>
-            <option>AI / ML Engineering</option>
-            <option>Data Platform Architecture</option>
-            <option>Autonomous Agent Systems</option>
-            <option>Consulting &amp; Advisory</option>
-            <option>General Updates</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary" id="signup-submit" style="width:100%; justify-content:center; margin-top:0.5rem;">
-          Request Access →
-        </button>
-        <p class="form-note" style="text-align:center; margin-top:0.75rem;">
-          <span>🔒</span> Privacy-first. Your data is never sold or shared with third parties.
-        </p>
-      </form>
-    </div>
-  </div>
-
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
