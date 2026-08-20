@@ -1,8 +1,14 @@
-# Mecasimetra Systems — Business Upgrade 2026
+# Mecasimetra Systems & Kappology — Business Upgrade 2026
+
+## Legal Identity
+
+**Legal company name:** Mecasimetra Systems & Kappology
+
+Public-facing materials, research documents, notices, contracts, and repository metadata should use this name consistently when referring to the company. Product, framework, or division names may use shorter branding where context makes clear that the responsible company is Mecasimetra Systems & Kappology.
 
 ## Purpose
 
-Mecasimetra Systems is being developed as a multidisciplinary systems company. Kappology is the shared research framework used to study continuity, disturbance, regime change, sparse control, and recovery across application domains.
+Mecasimetra Systems & Kappology is being developed as a multidisciplinary systems company. Kappology is the shared research framework used to study continuity, disturbance, regime change, sparse control, and recovery across application domains.
 
 This document separates current implementation from planned expansion so that public claims remain auditable.
 
@@ -18,7 +24,7 @@ Local and distributed AI, software systems, orchestration, data systems, automat
 Research targets include sensing, precision agriculture, resource optimization, automation, crop-system monitoring, and resilient farm infrastructure.
 
 ### Biomedical Systems
-Research targets include biomedical computation, systems modeling, health-data methods, diagnostics research, and medical-technology research. Biomedical work must be independently validated and developed under applicable scientific, ethical, and regulatory requirements.
+Research targets include biomedical computation, systems modeling, health-data methods, diagnostics research, and medical-technology research. Biomedical work must be independently validated and developed under applicable scientific, ethical, privacy, safety, and regulatory requirements.
 
 ### Energy & Infrastructure
 Energy efficiency, cooling, telecommunications, data-center systems, resilient networks, and infrastructure monitoring.
@@ -51,6 +57,15 @@ Mecasimetra public material should distinguish four levels:
 
 Performance numbers, uptime claims, accuracy claims, throughput claims, years-of-experience claims, and client outcomes should not be published without supporting evidence.
 
+## Legal and Compliance Standard
+
+- Use **Mecasimetra Systems & Kappology** as the company name in legal-facing documents.
+- Do not describe a technology, token, network, medical product, or service as legally exempt, compliant, approved, safe-harbored, or non-regulated without a documented legal basis and, where appropriate, qualified counsel.
+- Separate software-license terms from regulatory conclusions.
+- Treat trademark registration, patent status, corporate registration, and regulatory approval as factual claims that require records.
+- Maintain jurisdiction-specific reviews for network services, privacy, digital assets, sanctions/export controls, biomedical work, and other regulated activities.
+- Keep research claims separate from commercial warranties and representations.
+
 ## Professionalization Priorities
 
 - Reconcile Kappology mathematical definitions with software implementations.
@@ -61,6 +76,7 @@ Performance numbers, uptime claims, accuracy claims, throughput claims, years-of
 - Build tests and benchmark records around each experimental claim.
 - Maintain explicit biomedical and other regulated-domain boundaries.
 - Expand the public company map without implying deployment in domains that remain research targets.
+- Complete counsel review before production use of terms, token/network policies, arbitration clauses, or regulatory representations.
 
 ## Current Position
 
